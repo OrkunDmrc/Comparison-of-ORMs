@@ -1,0 +1,116 @@
+########################################################
+# Global Ignored Files (Common Across All Languages)
+########################################################
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+########################################################
+# C# (.NET) - Dapper & Entity Framework
+########################################################
+
+# Build and publish folders
+C#/Dapper/bin/
+C#/Dapper/obj/
+C#/EntityFramework/bin/
+C#/EntityFramework/obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio settings
+C#/.vs/
+C#/*/*.csproj.user
+
+# NuGet packages
+**/packages/
+*.nupkg
+
+########################################################
+# Go - Ent, GORM, SQLBoiler
+########################################################
+
+# Build artifacts
+Go/**/bin/
+Go/**/vendor/
+
+# Go modules
+Go/**/go.sum
+Go/**/go.mod
+
+# IDE/Tooling
+Go/**/.idea/
+Go/**/.vscode/
+
+########################################################
+# Node.js - Prisma, Sequelize, TypeORM
+########################################################
+
+# Node modules
+Node/**/node_modules/
+
+# Environment files
+Node/**/.env
+Node/**/.env.local
+Node/**/.env.*.local
+
+# Logs and debug
+Node/**/npm-debug.log*
+Node/**/yarn-debug.log*
+Node/**/yarn-error.log*
+
+# Build and output directories
+Node/**/dist/
+Node/**/build/
+
+# IDE/Tooling
+Node/**/.vscode/
+Node/**/.idea/
+
+########################################################
+# Python - SQLAlchemy
+########################################################
+
+# Bytecode and cache
+Python/**/__pycache__/
+Python/**/*.py[cod]
+Python/**/.Python
+
+# Virtual environments
+Python/**/env/
+Python/**/.env/
+Python/**/.venv/
+Python/**/venv/
+
+# MyPy, coverage, etc.
+Python/**/.mypy_cache/
+Python/**/.pytest_cache/
+Python/**/.coverage
+Python/**/coverage.xml
+Python/**/htmlcov/
+
+# Jupyter Notebook checkpoints
+Python/**/.ipynb_checkpoints/
+
+# IDE/Tooling
+Python/**/.vscode/
+Python/**/.idea/
+
+########################################################
+# Misc
+########################################################
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
