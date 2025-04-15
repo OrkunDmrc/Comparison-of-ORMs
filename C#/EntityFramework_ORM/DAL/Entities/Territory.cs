@@ -1,6 +1,6 @@
 ﻿using DAL.Interfaces;
 
-namespace MyApp.DAL.Entities;
+namespace DAL.Entities;
 
 public partial class Territory : IEntity
 {

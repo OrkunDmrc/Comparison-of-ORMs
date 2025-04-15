@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using MyApp.DAL.Data;
+using DAL.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

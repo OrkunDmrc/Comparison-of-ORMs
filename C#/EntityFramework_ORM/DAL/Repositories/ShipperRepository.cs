@@ -1,9 +1,7 @@
 ﻿using DAL.Repositories;
-using MyApp.DAL.Entities;
-using System;
-using System.Collections.Generic;
+using DAL.Entities;
 
-namespace MyApp.DAL.Repositories;
+namespace DAL.Repositories;
 
 public class ShipperRepository : GenericRepository<Shipper, int>
 {

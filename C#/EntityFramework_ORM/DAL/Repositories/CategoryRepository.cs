@@ -1,7 +1,7 @@
 ﻿using DAL.Repositories;
-using MyApp.DAL.Entities;
+using DAL.Entities;
 
-namespace MyApp.DAL.Repositories;
+namespace DAL.Repositories;
 
 public class CategoryRepository : GenericRepository<Category, int>
 {

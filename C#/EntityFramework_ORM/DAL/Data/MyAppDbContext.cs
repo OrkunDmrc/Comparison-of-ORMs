@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using MyApp.DAL.Entities;
+using DAL.Entities;
 
-namespace MyApp.DAL.Data;
+namespace DAL.Data;
 
 public partial class MyAppDbContext : DbContext
 {

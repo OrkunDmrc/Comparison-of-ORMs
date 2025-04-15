@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MyApp.DAL.Entities;
+namespace DAL.Entities;
 
 public partial class Supplier : IEntity
 {
