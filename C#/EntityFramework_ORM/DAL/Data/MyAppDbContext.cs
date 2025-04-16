@@ -7,10 +7,6 @@ namespace DAL.Data;
 
 public partial class MyAppDbContext : DbContext
 {
-    public MyAppDbContext()
-    {
-
-    }
     public MyAppDbContext(DbContextOptions<MyAppDbContext> options)
         : base(options)
     {

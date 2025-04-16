@@ -1,6 +1,4 @@
 ﻿using DAL.Interfaces;
-using System;
-using System.Collections.Generic;
 
 namespace DAL.Entities;
 

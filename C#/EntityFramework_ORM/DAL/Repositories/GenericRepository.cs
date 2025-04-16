@@ -8,9 +8,9 @@ namespace DAL.Repositories
     public class GenericRepository<T, Tkey> where T : class, IEntity
     {
         private MyAppDbContext _context;
-        public GenericRepository() 
+        public GenericRepository(MyAppDbContext context) 
         {
-            _context = new MyAppDbContext();
+            _context = context;
         }
         public async Task<List<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 

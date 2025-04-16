@@ -1,9 +1,12 @@
 ﻿using DAL.Repositories;
 using DAL.Entities;
+using DAL.Data;
 
 namespace DAL.Repositories;
 
-public partial class CustomerRepository : GenericRepository<Customer, string>
+public class CustomerRepository : GenericRepository<Customer, string>
 {
-
+    public CustomerRepository(MyAppDbContext context) : base(context)
+    {
+    }
 }

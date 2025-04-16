@@ -2,7 +2,7 @@
 using DAL.Entities;
 using DAL.Repositories;
 
-namespace MyApp.BLL.Services;
+namespace BLL.Services;
 
 public class RegionService : IService<Region, int>
 {

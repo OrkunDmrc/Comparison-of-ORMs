@@ -1,11 +1,8 @@
 ﻿using BLL.Interfaces;
-using BLL.Services;
 using DAL.Entities;
 using DAL.Repositories;
-using System;
-using System.Collections.Generic;
 
-namespace MyApp.BLL.Services;
+namespace BLL.Services;
 
 public class EmployeeService : IService<Employee, int>
 {
