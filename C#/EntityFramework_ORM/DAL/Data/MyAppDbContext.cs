@@ -32,6 +32,8 @@ public partial class MyAppDbContext : DbContext
 
     public virtual DbSet<Territory> Territories { get; set; }
 
+    public virtual DbSet<TestDatum> TestData { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>(entity =>
@@ -269,6 +271,15 @@ public partial class MyAppDbContext : DbContext
                 .HasForeignKey(d => d.RegionID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Territories_Region");
+        });
+
+        modelBuilder.Entity<TestDatum>(entity =>
+        {
+            entity.Property(e => e.CpuUsage).HasMaxLength(50);
+            entity.Property(e => e.Language).HasMaxLength(50);
+            entity.Property(e => e.MemoryUsage).HasMaxLength(50);
+            entity.Property(e => e.Performance).HasMaxLength(50);
+            entity.Property(e => e.TestName).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

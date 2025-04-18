@@ -34,6 +34,8 @@ builder.Services.AddScoped(typeof(SupplierService));
 builder.Services.AddScoped(typeof(SupplierRepository));
 builder.Services.AddScoped(typeof(TerritoryService));
 builder.Services.AddScoped(typeof(TerritoryRepository));
+builder.Services.AddScoped(typeof(TestDatumService));
+builder.Services.AddScoped(typeof(TestDatumRepository));
 
 var app = builder.Build();
 
