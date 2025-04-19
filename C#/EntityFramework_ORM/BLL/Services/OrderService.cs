@@ -1,6 +1,5 @@
 ﻿using BLL.Interfaces;
 using DAL.Entities;
-using DAL.Interfaces;
 using DAL.Repositories;
 using System.Diagnostics;
 
@@ -34,7 +33,7 @@ public class OrderService : IService<Order, int>
         var memAfter = procAfter.WorkingSet64;
 
         testDatum.Language = "Net Core";
-        testDatum.TestName = "Create Operation";
+        testDatum.TestName = "EF Create Operation";
         testDatum.Performance = $"{stopwatch.ElapsedMilliseconds} ms";
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
@@ -60,7 +59,7 @@ public class OrderService : IService<Order, int>
         var memAfter = procAfter.WorkingSet64;
 
         testDatum.Language = "Net Core";
-        testDatum.TestName = "Remove Operation";
+        testDatum.TestName = "EF Remove Operation";
         testDatum.Performance = $"{stopwatch.ElapsedMilliseconds} ms";
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
@@ -86,7 +85,7 @@ public class OrderService : IService<Order, int>
         var memAfter = procAfter.WorkingSet64;
 
         testDatum.Language = "Net Core";
-        testDatum.TestName = "Get All Operation";
+        testDatum.TestName = "EF Get All Operation";
         testDatum.Performance = $"{stopwatch.ElapsedMilliseconds} ms";
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
@@ -112,7 +111,7 @@ public class OrderService : IService<Order, int>
         var memAfter = procAfter.WorkingSet64;
 
         testDatum.Language = "Net Core";
-        testDatum.TestName = "Get By Id Operation";
+        testDatum.TestName = "EF Get By Id Operation";
         testDatum.Performance = $"{stopwatch.ElapsedMilliseconds} ms";
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
@@ -138,7 +137,7 @@ public class OrderService : IService<Order, int>
         var memAfter = procAfter.WorkingSet64;
 
         testDatum.Language = "Net Core";
-        testDatum.TestName = "Update Operation";
+        testDatum.TestName = "EF Update Operation";
         testDatum.Performance = $"{stopwatch.ElapsedMilliseconds} ms";
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
