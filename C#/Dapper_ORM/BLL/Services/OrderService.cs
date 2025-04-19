@@ -129,7 +129,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        await _repository.UpdateAsync(entity, entity.OrderID);
+        await _repository.UpdateAsync(entity);
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();

@@ -38,37 +38,38 @@ namespace DAL.Repositories
                 return await connection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
             }
         }
-
+        [Obsolete]
         public async Task<T> AddAsync(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                var columns = string.Join(", ", typeof(T).GetProperties().Select(p => p.Name));
-                var parameters = string.Join(", ", typeof(T).GetProperties().Select(p => "@" + p.Name));
+                var columns = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => p.Name)).Replace(_primaryKey, "");
+                var parameters = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => "@" + p.Name)).Replace($"@{_primaryKey}", "");
                 var query = $"INSERT INTO {_tableName} ({columns}) VALUES ({parameters}); SELECT CAST(SCOPE_IDENTITY() as int);";
                 var id = await connection.QuerySingleAsync<int>(query, entity);
-                var propertyInfo = typeof(T).GetProperty("Id");
-                if (propertyInfo != null)
-                    propertyInfo.SetValue(entity, id);
-                return entity; 
+                var propertyInfo = typeof(T).GetProperty(_primaryKey);
+                propertyInfo.SetValue(entity, id);
+                return entity;
             }
         }
-
-        public async Task<T> UpdateAsync(T entity, Tkey primaryKey)
+        [Obsolete]
+        public async Task<T> UpdateAsync(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
                 var setClause = string.Join(", ", typeof(T).GetProperties()
-                    .Where(p => p.Name != nameof(primaryKey))
+                    .Where(p => p.Name != _primaryKey)
                     .Select(p => $"{p.Name} = @{p.Name}"));
-                var query = $"UPDATE {_tableName} SET {setClause} WHERE {_primaryKey} = @{primaryKey}";
+                var propertyInfo = typeof(T).GetProperty(_primaryKey);
+                var id = propertyInfo.GetValue(entity);
+                var query = $"UPDATE {_tableName} SET {setClause} WHERE {_primaryKey} = {id}";
                 await connection.ExecuteAsync(query, entity);
                 return entity;
             }
         }
-
+        [Obsolete]
         public async Task<T?> DeleteAsync(Tkey id)
         {
             using (var connection = new SqlConnection(_connectionString))

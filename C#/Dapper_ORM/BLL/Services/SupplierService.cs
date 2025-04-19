@@ -22,5 +22,5 @@ public class SupplierService : IService<Supplier, int>
 
     public async Task<Supplier?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Supplier> UpdateAsync(Supplier entity) => await _repository.UpdateAsync(entity, entity.SupplierID);
+    public async Task<Supplier> UpdateAsync(Supplier entity) => await _repository.UpdateAsync(entity);
 }

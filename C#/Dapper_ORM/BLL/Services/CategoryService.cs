@@ -21,5 +21,5 @@ public class CategoryService : IService<Category, int>
 
     public async Task<Category?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Category> UpdateAsync(Category entity) => await _repository.UpdateAsync(entity, entity.CategoryID);
+    public async Task<Category> UpdateAsync(Category entity) => await _repository.UpdateAsync(entity);
 }

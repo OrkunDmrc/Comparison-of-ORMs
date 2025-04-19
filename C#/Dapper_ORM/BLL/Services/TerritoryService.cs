@@ -20,5 +20,5 @@ public class TerritoryService : IService<Territory, string>
 
     public async Task<Territory?> GetByIdAsync(string id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Territory> UpdateAsync(Territory entity) => await _repository.UpdateAsync(entity, entity.TerritoryID);
+    public async Task<Territory> UpdateAsync(Territory entity) => await _repository.UpdateAsync(entity);
 }

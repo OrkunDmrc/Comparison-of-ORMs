@@ -21,5 +21,5 @@ public class CustomerService : IService<Customer, string>
 
     public async Task<Customer?> GetByIdAsync(string id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Customer> UpdateAsync(Customer entity) => await _repository.UpdateAsync(entity, entity.CustomerID);
+    public async Task<Customer> UpdateAsync(Customer entity) => await _repository.UpdateAsync(entity);
 }

@@ -21,5 +21,5 @@ public class RegionService : IService<Region, int>
 
     public async Task<Region?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Region> UpdateAsync(Region entity) => await _repository.UpdateAsync(entity, entity.RegionID);
+    public async Task<Region> UpdateAsync(Region entity) => await _repository.UpdateAsync(entity);
 }

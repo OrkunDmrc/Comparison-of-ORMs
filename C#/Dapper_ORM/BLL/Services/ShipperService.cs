@@ -22,5 +22,5 @@ public class ShipperService : IService<Shipper, int>
 
     public async Task<Shipper?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Shipper> UpdateAsync(Shipper entity) => await _repository.UpdateAsync(entity, entity.ShipperID);
+    public async Task<Shipper> UpdateAsync(Shipper entity) => await _repository.UpdateAsync(entity);
 }

@@ -21,5 +21,5 @@ public class ProductService : IService<Product, int>
 
     public async Task<Product?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Product> UpdateAsync(Product entity) => await _repository.UpdateAsync(entity, entity.ProductID);
+    public async Task<Product> UpdateAsync(Product entity) => await _repository.UpdateAsync(entity);
 }

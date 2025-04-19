@@ -7,9 +7,9 @@ C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\Entity
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.sourcelink.json
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.dll
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\refint\DAL.dll
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.pdb
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
 C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\ref\DAL.dll
-C:\Users\orkun\OneDrive\Masaüstü\ue\second\thesis\Comparison of ORMs\C#\EntityFramework_ORM\DAL\obj\Debug\net8.0\DAL.sourcelink.json

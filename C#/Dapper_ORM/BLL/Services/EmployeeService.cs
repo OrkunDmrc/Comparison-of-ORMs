@@ -21,5 +21,5 @@ public class EmployeeService : IService<Employee, int>
 
     public async Task<Employee?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public async Task<Employee> UpdateAsync(Employee entity) => await _repository.UpdateAsync(entity, entity.EmployeeID);
+    public async Task<Employee> UpdateAsync(Employee entity) => await _repository.UpdateAsync(entity);
 }
