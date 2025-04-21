@@ -1,0 +1,12 @@
+from .category_router import router as category_router
+from .customer_router import router as customer_router
+from .employee_router import router as employee_router
+from .employee_territory_router import router as employee_territory_router
+from .order_detail_router import router as order_detail_router
+from .order_router import router as order_router
+from .product_router import router as product_router
+from .region_router import router as region_router
+from .shipper_router import router as shipper_router
+from .supplier_router import router as supplier_router
+from .territory_router import router as territory_router
+from .test_datum_router import router as test_datum_router

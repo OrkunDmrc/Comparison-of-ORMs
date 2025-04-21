@@ -1,0 +1,43 @@
+from fastapi import APIRouter, Depends, HTTPException
+from dal.entities.product import Product
+from bll.services.product_service import ProductService
+
+router = APIRouter(prefix="/products", tags=["products"])
+
+@router.get("/{id}")
+def get(id: int, svc: ProductService = Depends(ProductService)):
+    try:
+        return svc.get_by_id(id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.get("/")
+def get_all(svc: ProductService = Depends(ProductService)):
+    try:
+        return svc.get_all()
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.post("/")
+def add(entity: dict, svc: ProductService = Depends(ProductService)):
+    try:
+        return svc.create(Product(**entity))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
+@router.put("/{id}")
+def update(id: int, entity: dict, svc: ProductService = Depends(ProductService)):
+    try:
+        return svc.update(id, Product(**entity))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
+@router.delete("/{id}")
+def delete(id: int, svc: ProductService = Depends(ProductService)):
+    try:
+        return svc.delete(id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
+
+

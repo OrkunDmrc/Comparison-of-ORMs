@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BEF0EBC0-6EC5-496C-85F7-55ABE425B68A}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\dal\\data\\myappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEF0EBC0-6EC5-496C-85F7-55ABE425B68A}|DAL\\DAL.csproj|solutionrelative:dal\\data\\myappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\bll\\services\\order_detailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|solutionrelative:bll\\services\\order_detailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\api\\controllers\\testdatumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|solutionrelative:api\\controllers\\testdatumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\bll\\services\\testdatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35DD2E89-EF79-4B91-B3BF-6A5ED1192EF2}|BLL\\BLL.csproj|solutionrelative:bll\\services\\testdatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\api\\controllers\\order_detailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|solutionrelative:api\\controllers\\order_detailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEF0EBC0-6EC5-496C-85F7-55ABE425B68A}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\dal\\repositories\\order_detailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEF0EBC0-6EC5-496C-85F7-55ABE425B68A}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\order_detailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\entityframework_orm\\api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B6EDFB14-3303-467D-B4B0-0A80B1D5D971}|API\\API.csproj|solutionrelative:api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,11 +50,100 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\OrderService.cs",
+              "RelativeToolTip": "BLL\\Services\\OrderService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHkAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:57:27.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TestDatumController.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\TestDatumController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\TestDatumController.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\TestDatumController.cs",
+              "RelativeToolTip": "API\\Controllers\\TestDatumController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:47:29.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TestDatumService.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\TestDatumService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\TestDatumService.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\TestDatumService.cs",
+              "RelativeToolTip": "BLL\\Services\\TestDatumService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:47:21.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order_DetailController.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\Order_DetailController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\Order_DetailController.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\Order_DetailController.cs",
+              "RelativeToolTip": "API\\Controllers\\Order_DetailController.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAApwD4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T18:55:31.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Order_DetailRepository.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\DAL\\Repositories\\Order_DetailRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repositories\\Order_DetailRepository.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\DAL\\Repositories\\Order_DetailRepository.cs",
+              "RelativeToolTip": "DAL\\Repositories\\Order_DetailRepository.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAawBMAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T18:53:32.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Order_DetailService.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\Order_DetailService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\Order_DetailService.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\BLL\\Services\\Order_DetailService.cs",
+              "RelativeToolTip": "BLL\\Services\\Order_DetailService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAawBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T16:44:52.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyAppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\DAL\\Data\\MyAppDbContext.cs",
+              "RelativeDocumentMoniker": "DAL\\Data\\MyAppDbContext.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\DAL\\Data\\MyAppDbContext.cs",
+              "RelativeToolTip": "DAL\\Data\\MyAppDbContext.cs",
+              "ViewState": "AQIAAAMBAAAAAAAAAAAcwAsBAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T20:45:46.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
@@ -34,12 +151,11 @@
               "RelativeToolTip": "API\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-19T17:08:17.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T17:08:17.315Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
@@ -47,21 +163,19 @@
               "RelativeToolTip": "API\\Program.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAA8AAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T17:08:06.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T17:08:06.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\EntityFramework_ORM\\API\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "API\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAIAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwEwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T17:07:57.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T17:07:57.599Z"
             }
           ]
         }

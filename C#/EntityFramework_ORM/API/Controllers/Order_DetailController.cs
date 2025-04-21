@@ -60,7 +60,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(await _service.AddAsync(new Order_Detail
+                return Ok(await _service.Add(new Order_Detail
                 {
                     OrderID = body.OrderID,
                     ProductID = body.ProductID,
@@ -79,7 +79,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(await _service.DeleteAsync(orderId, productId));
+                return Ok(await _service.Delete(orderId, productId));
             }
             catch (Exception ex)
             {

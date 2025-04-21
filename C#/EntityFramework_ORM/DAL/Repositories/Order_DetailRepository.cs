@@ -13,14 +13,14 @@ public class Order_DetailRepository
         _context = context;
     }
 
-    public async Task<List<Order_Detail>> GetAllAsync() => await _context.Set<Order_Detail>().ToListAsync();
+    public async Task<List<Order_Detail>> GetAll() => await _context.Set<Order_Detail>().ToListAsync();
 
     public async Task<Order_Detail?> GetByIdAsync(int orderId, int productId) => await _context.Set<Order_Detail>().FirstAsync(e => e.OrderID == orderId && e.ProductID == productId);
 
-    public async Task<Order_Detail> AddAsync(Order_Detail entity)
+    public Order_Detail Add(Order_Detail entity)
     {
-        await _context.Set<Order_Detail>().AddAsync(entity);
-        await _context.SaveChangesAsync();
+        _context.Set<Order_Detail>().Add(entity);
+        _context.SaveChanges();
         return entity;
     }
 
