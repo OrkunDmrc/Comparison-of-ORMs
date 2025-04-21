@@ -12,31 +12,31 @@ namespace DAL.Repositories
         {
             _context = context;
         }
-        public async Task<List<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
+        public List<T> GetAll() => _context.Set<T>().ToList();
 
-        public async Task<T?> GetByIdAsync(Tkey id) => await _context.Set<T>().FindAsync(id);
+        public T? GetById(Tkey id) => _context.Set<T>().Find(id);
 
-        public async Task<T> AddAsync(T entity)
+        public T Add(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public T Update(T entity)
         {
             _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return entity;
         }
         
-        public async Task<T?> DeleteAsync(Tkey id) 
+        public T? Delete(Tkey id) 
         {
-            var entity = await GetByIdAsync(id);
+            var entity = GetById(id);
             if (entity != null)
             {
                 _context.Set<T>().Remove(entity);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
             return entity;
         }

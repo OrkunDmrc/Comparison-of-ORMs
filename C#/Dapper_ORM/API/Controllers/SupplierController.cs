@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
-                var entity = await _service.GetByIdAsync(id);
+                var entity = _service.GetById(id);
                 return Ok(new GetSupplierModel()
                 {
                     SupplierID = entity.SupplierID,
@@ -42,11 +42,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {
-                var entities = await _service.GetAllAsync();
+                var entities = _service.GetAll();
                 return Ok(entities.Select(entity => new GetSupplierModel()
                 {
                     SupplierID = entity.SupplierID,
@@ -69,11 +69,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Add(AddSupplierModel body)
+        public IActionResult Add(AddSupplierModel body)
         {
             try
             {
-                return Ok(await _service.AddAsync(new Supplier
+                return Ok(_service.Add(new Supplier
                 {
                     CompanyName = body.CompanyName,
                     ContactName = body.ContactName,
@@ -94,11 +94,11 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, UpdateSupplierModel body)
+        public IActionResult Update(int id, UpdateSupplierModel body)
         {
             try
             {
-                return Ok(await _service.UpdateAsync(new Supplier
+                return Ok(_service.Update(new Supplier
                 {
                     SupplierID = id,
                     CompanyName = body.CompanyName,
@@ -120,11 +120,11 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
-                return Ok(await _service.DeleteAsync(id));
+                return Ok(_service.Delete(id));
             }
             catch (Exception ex)
             {

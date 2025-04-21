@@ -16,11 +16,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{orderId}&{productId}")]
-        public async Task<IActionResult> Get(int orderId, int productId)
+        public IActionResult Get(int orderId, int productId)
         {
             try
             {
-                var entity = await _service.GetByIdAsync(orderId, productId);
+                var entity = _service.GetById(orderId, productId);
                 return Ok(new GetOrder_DetailModel()
                 {
                     OrderID = entity.OrderID,
@@ -36,11 +36,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {
-                var entities = await _service.GetAllAsync();
+                var entities = _service.GetAll();
                 return Ok(entities.Select(entity => new GetOrder_DetailModel()
                 {
                     OrderID = entity.OrderID,
@@ -56,11 +56,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Add(AddOrder_DetailModel body)
+        public IActionResult Add(AddOrder_DetailModel body)
         {
             try
             {
-                return Ok(await _service.AddAsync(new Order_Detail
+                return Ok(_service.Add(new Order_Detail
                 {
                     OrderID = body.OrderID,
                     ProductID = body.ProductID,
@@ -75,11 +75,11 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{orderId}&{productId}")]
-        public async Task<IActionResult> Delete(int orderId, int productId)
+        public IActionResult Delete(int orderId, int productId)
         {
             try
             {
-                return Ok(await _service.DeleteAsync(orderId, productId));
+                return Ok(_service.Delete(orderId, productId));
             }
             catch (Exception ex)
             {

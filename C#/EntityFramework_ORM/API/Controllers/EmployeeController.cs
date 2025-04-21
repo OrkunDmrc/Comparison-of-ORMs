@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
-                var entity = await _service.GetByIdAsync(id);
+                var entity = _service.GetById(id);
                 return Ok(new GetEmployeeModel()
                 {
                     EmployeeID = entity.EmployeeID,
@@ -48,11 +48,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {
-                var entities = await _service.GetAllAsync();
+                var entities = _service.GetAll();
                 return Ok(entities.Select(entity => new GetEmployeeModel()
                 {
                     EmployeeID = entity.EmployeeID,
@@ -81,11 +81,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Add(AddEmployeeModel body)
+        public IActionResult Add(AddEmployeeModel body)
         {
             try
             {
-                return Ok(await _service.AddAsync(new Employee
+                return Ok(_service.Add(new Employee
                 {
                     LastName = body.LastName,
                     FirstName = body.FirstName,
@@ -112,11 +112,11 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, UpdateEmployeeModel body)
+        public IActionResult Update(int id, UpdateEmployeeModel body)
         {
             try
             {
-                return Ok(await _service.UpdateAsync(new Employee
+                return Ok(_service.Update(new Employee
                 {
                     EmployeeID = id,
                     LastName = body.LastName,
@@ -144,11 +144,11 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
-                return Ok(await _service.DeleteAsync(id));
+                return Ok(_service.Delete(id));
             }
             catch (Exception ex)
             {

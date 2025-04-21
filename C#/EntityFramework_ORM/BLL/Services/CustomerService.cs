@@ -14,13 +14,13 @@ public class CustomerService : IService<Customer, string>
         _repository = repository;
     }
 
-    public async Task<Customer> AddAsync(Customer entity) => await _repository.AddAsync(entity);
+    public Customer Add(Customer entity) => _repository.Add(entity);
 
-    public async Task<Customer?> DeleteAsync(string id) => await _repository.DeleteAsync(id);
+    public Customer? Delete(string id) => _repository.Delete(id);
 
-    public async Task<List<Customer>> GetAllAsync() => await _repository.GetAllAsync();
+    public List<Customer> GetAll() => _repository.GetAll();
 
-    public async Task<Customer?> GetByIdAsync(string id) => await _repository.GetByIdAsync(id);
+    public Customer? GetById(string id) => _repository.GetById(id);
 
-    public async Task<Customer> UpdateAsync(Customer entity) => await _repository.UpdateAsync(entity);
+    public Customer Update(Customer entity) => _repository.Update(entity);
 }

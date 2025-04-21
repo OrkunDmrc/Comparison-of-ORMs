@@ -16,7 +16,7 @@ public class OrderService : IService<Order, int>
         _testDatumRepository = testDatumRepository;
     }
 
-    public async Task<Order> AddAsync(Order entity)
+    public Order Add(Order entity)
     {
         TestDatum testDatum = new TestDatum();
 
@@ -25,7 +25,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        var entiry = await _repository.AddAsync(entity);
+        _repository.Add(entity);
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();
@@ -38,12 +38,12 @@ public class OrderService : IService<Order, int>
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
 
-        await _testDatumRepository.AddAsync(testDatum);
+        _testDatumRepository.Add(testDatum);
         return entity;
 
     }
 
-    public async Task<Order?> DeleteAsync(int id)
+    public Order? Delete(int id)
     {
         TestDatum testDatum = new TestDatum();
         var procBefore = Process.GetCurrentProcess();
@@ -51,7 +51,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        var entity = await _repository.DeleteAsync(id);
+        var entity = _repository.Delete(id);
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();
@@ -64,12 +64,12 @@ public class OrderService : IService<Order, int>
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
 
-        await _testDatumRepository.AddAsync(testDatum);
+        _testDatumRepository.Add(testDatum);
 
         return entity;
     }
 
-    public async Task<List<Order>> GetAllAsync()
+    public List<Order> GetAll()
     {
         TestDatum testDatum = new TestDatum();
         var procBefore = Process.GetCurrentProcess();
@@ -77,7 +77,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        var entities = await _repository.GetAllAsync();
+        var entities = _repository.GetAll();
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();
@@ -90,12 +90,12 @@ public class OrderService : IService<Order, int>
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
 
-        await _testDatumRepository.AddAsync(testDatum);
+        _testDatumRepository.Add(testDatum);
 
         return entities;
     }
 
-    public async Task<Order?> GetByIdAsync(int id)
+    public Order? GetById(int id)
     {
         TestDatum testDatum = new TestDatum();
         var procBefore = Process.GetCurrentProcess();
@@ -103,7 +103,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        var entity = await _repository.GetByIdAsync(id);
+        var entity = _repository.GetById(id);
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();
@@ -116,12 +116,12 @@ public class OrderService : IService<Order, int>
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
 
-        await _testDatumRepository.AddAsync(testDatum);
+        _testDatumRepository.Add(testDatum);
 
         return entity;
     }
 
-    public async Task<Order> UpdateAsync(Order entity)
+    public Order Update(Order entity)
     {
         TestDatum testDatum = new TestDatum();
         var procBefore = Process.GetCurrentProcess();
@@ -129,7 +129,7 @@ public class OrderService : IService<Order, int>
         var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
 
-        await _repository.UpdateAsync(entity);
+        _repository.Update(entity);
 
         stopwatch.Stop();
         var procAfter = Process.GetCurrentProcess();
@@ -142,7 +142,7 @@ public class OrderService : IService<Order, int>
         testDatum.MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB";
         testDatum.CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms";
 
-        await _testDatumRepository.AddAsync(testDatum);
+        _testDatumRepository.Add(testDatum);
 
         return entity;
     }

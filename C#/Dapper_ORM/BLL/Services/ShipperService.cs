@@ -14,13 +14,13 @@ public class ShipperService : IService<Shipper, int>
         _repository = repository;
     }
 
-    public async Task<Shipper> AddAsync(Shipper entity) => await _repository.AddAsync(entity);
+    public Shipper Add(Shipper entity) => _repository.Add(entity);
 
-    public async Task<Shipper?> DeleteAsync(int id) => await _repository.DeleteAsync(id);
+    public Shipper? Delete(int id) => _repository.Delete(id);
 
-    public async Task<List<Shipper>> GetAllAsync() => await _repository.GetAllAsync();
+    public List<Shipper> GetAll() => _repository.GetAll();
 
-    public async Task<Shipper?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+    public Shipper? GetById(int id) => _repository.GetById(id);
 
-    public async Task<Shipper> UpdateAsync(Shipper entity) => await _repository.UpdateAsync(entity);
+    public Shipper Update(Shipper entity) => _repository.Update(entity);
 }

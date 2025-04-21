@@ -18,64 +18,64 @@ namespace DAL.Repositories
         }
 
         [Obsolete]
-        public async Task<List<T>> GetAllAsync()
+        public List<T> GetAll()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var query = $"SELECT * FROM {_tableName}";
-                var result = await connection.QueryAsync<T>(query);
+                var result = connection.Query<T>(query);
                 return result.ToList();
             }
         }
         [Obsolete]
-        public async Task<T?> GetByIdAsync(Tkey id)
+        public T? GetById(Tkey id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 var query = $"SELECT * FROM {_tableName} WHERE {_primaryKey} = @Id";
-                return await connection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
+                return connection.QueryFirstOrDefault<T>(query, new { Id = id });
             }
         }
         [Obsolete]
-        public async Task<T> AddAsync(T entity)
+        public T Add(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var columns = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => p.Name)).Replace(_primaryKey, "");
                 var parameters = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => "@" + p.Name)).Replace($"@{_primaryKey}", "");
                 var query = $"INSERT INTO {_tableName} ({columns}) VALUES ({parameters}); SELECT CAST(SCOPE_IDENTITY() as int);";
-                var id = await connection.QuerySingleAsync<int>(query, entity);
+                var id = connection.QuerySingle<int>(query, entity);
                 var propertyInfo = typeof(T).GetProperty(_primaryKey);
                 propertyInfo.SetValue(entity, id);
                 return entity;
             }
         }
         [Obsolete]
-        public async Task<T> UpdateAsync(T entity)
+        public T Update(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var setClause = string.Join(", ", typeof(T).GetProperties()
                     .Where(p => p.Name != _primaryKey)
                     .Select(p => $"{p.Name} = @{p.Name}"));
                 var propertyInfo = typeof(T).GetProperty(_primaryKey);
                 var id = propertyInfo.GetValue(entity);
                 var query = $"UPDATE {_tableName} SET {setClause} WHERE {_primaryKey} = {id}";
-                await connection.ExecuteAsync(query, entity);
+                connection.Execute(query, entity);
                 return entity;
             }
         }
         [Obsolete]
-        public async Task<T?> DeleteAsync(Tkey id)
+        public T? Delete(Tkey id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
-                var entity = await connection.QueryFirstOrDefaultAsync<T>(
+                connection.Open();
+                var entity = connection.QueryFirstOrDefault<T>(
                     $"SELECT * FROM {_tableName} WHERE {_primaryKey} = @Id",
                     new { Id = id });
                 if (entity == null)
@@ -83,7 +83,7 @@ namespace DAL.Repositories
                     return null;
                 }
                 var query = $"DELETE FROM {_tableName} WHERE {_primaryKey} = @Id";
-                await connection.ExecuteAsync(query, new { Id = id });
+                connection.Execute(query, new { Id = id });
                 return entity;
             }
         }

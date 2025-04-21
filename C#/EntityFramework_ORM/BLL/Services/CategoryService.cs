@@ -13,13 +13,13 @@ public class CategoryService : IService<Category, int>
         _repository = repository;
     }
 
-    public async Task<Category> AddAsync(Category entity) => await _repository.AddAsync(entity);
+    public Category Add(Category entity) => _repository.Add(entity);
     
-    public async Task<Category?> DeleteAsync(int id) => await _repository.DeleteAsync(id);
+    public Category? Delete(int id) => _repository.Delete(id);
 
-    public async Task<List<Category>> GetAllAsync() => await _repository.GetAllAsync();
+    public List<Category> GetAll() => _repository.GetAll();
 
-    public async Task<Category?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+    public Category? GetById(int id) => _repository.GetById(id);
 
-    public async Task<Category> UpdateAsync(Category entity) => await _repository.UpdateAsync(entity);
+    public Category Update(Category entity) => _repository.Update(entity);
 }

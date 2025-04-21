@@ -14,13 +14,13 @@ public class SupplierService : IService<Supplier, int>
         _repository = repository;
     }
 
-    public async Task<Supplier> AddAsync(Supplier entity) => await _repository.AddAsync(entity);
+    public Supplier Add(Supplier entity) => _repository.Add(entity);
 
-    public async Task<Supplier?> DeleteAsync(int id) => await _repository.DeleteAsync(id);
+    public Supplier? Delete(int id) => _repository.Delete(id);
 
-    public async Task<List<Supplier>> GetAllAsync() => await _repository.GetAllAsync();
+    public List<Supplier> GetAll() => _repository.GetAll();
 
-    public async Task<Supplier?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+    public Supplier? GetById(int id) => _repository.GetById(id);
 
-    public async Task<Supplier> UpdateAsync(Supplier entity) => await _repository.UpdateAsync(entity);
+    public Supplier Update(Supplier entity) => _repository.Update(entity);
 }

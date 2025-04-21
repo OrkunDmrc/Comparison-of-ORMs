@@ -13,11 +13,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {   
-                return Ok(await _service.GetAllAsync());
+                return Ok(_service.GetAll());
             }
             catch (Exception ex)
             {

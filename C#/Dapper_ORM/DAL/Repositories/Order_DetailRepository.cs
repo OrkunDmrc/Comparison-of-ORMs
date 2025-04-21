@@ -1,7 +1,5 @@
 ﻿using Dapper;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using DAL.Entities;
 
 namespace DAL.Repositories
@@ -15,51 +13,51 @@ namespace DAL.Repositories
             _connectionString = connectionString;
         }
 
-        public async Task<List<Order_Detail>> GetAllAsync()
+        public List<Order_Detail> GetAll()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var query = "SELECT * FROM [Order Details]";
-                return (await connection.QueryAsync<Order_Detail>(query)).AsList();
+                return connection.Query<Order_Detail>(query).ToList();
             }
         }
 
-        public async Task<Order_Detail?> GetByIdAsync(int orderId, int productId)
+        public Order_Detail? GetById(int orderId, int productId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var query = "SELECT * FROM [Order Details] WHERE OrderID = @OrderId AND ProductID = @ProductId";
-                return await connection.QueryFirstOrDefaultAsync<Order_Detail>(query, new { OrderId = orderId, ProductId = productId });
+                return connection.QueryFirstOrDefault<Order_Detail>(query, new { OrderId = orderId, ProductId = productId });
             }
         }
 
-        public async Task<Order_Detail> AddAsync(Order_Detail entity)
+        public Order_Detail Add(Order_Detail entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var query = "INSERT INTO [Order Details] (OrderID, ProductID, Quantity, UnitPrice) " +
                             "VALUES (@OrderID, @ProductID, @Quantity, @UnitPrice);" +
                             "SELECT CAST(SCOPE_IDENTITY() as int);";
-                var id = await connection.QuerySingleAsync<int>(query, entity);
+                var id = connection.QuerySingle<int>(query, entity);
                 entity.OrderID = id;
                 return entity;
             }
         }
 
-        public async Task<Order_Detail?> DeleteAsync(int orderId, int productId)
+        public Order_Detail? Delete(int orderId, int productId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+                connection.Open();
                 var query = "SELECT * FROM [Order Details] WHERE OrderID = @OrderId AND ProductID = @ProductId";
-                var entity = await connection.QueryFirstOrDefaultAsync<Order_Detail>(query, new { OrderId = orderId, ProductId = productId });
+                var entity = connection.QueryFirstOrDefault<Order_Detail>(query, new { OrderId = orderId, ProductId = productId });
                 if (entity != null)
                 {
                     var deleteQuery = "DELETE FROM [Order Details] WHERE OrderID = @OrderId AND ProductID = @ProductId";
-                    await connection.ExecuteAsync(deleteQuery, new { OrderId = orderId, ProductId = productId });
+                    connection.Execute(deleteQuery, new { OrderId = orderId, ProductId = productId });
                     return entity;
                 }
                 return null;

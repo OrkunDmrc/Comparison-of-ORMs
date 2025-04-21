@@ -13,9 +13,9 @@ public class Order_DetailRepository
         _context = context;
     }
 
-    public async Task<List<Order_Detail>> GetAll() => await _context.Set<Order_Detail>().ToListAsync();
+    public List<Order_Detail> GetAll() => _context.Set<Order_Detail>().ToList();
 
-    public async Task<Order_Detail?> GetByIdAsync(int orderId, int productId) => await _context.Set<Order_Detail>().FirstAsync(e => e.OrderID == orderId && e.ProductID == productId);
+    public Order_Detail? GetById(int orderId, int productId) => _context.Set<Order_Detail>().First(e => e.OrderID == orderId && e.ProductID == productId);
 
     public Order_Detail Add(Order_Detail entity)
     {
@@ -24,13 +24,13 @@ public class Order_DetailRepository
         return entity;
     }
 
-    public async Task<Order_Detail?> DeleteAsync(int orderId, int productId)
+    public Order_Detail? Delete(int orderId, int productId)
     {
-        var entity = await GetByIdAsync(orderId, productId);
+        var entity = GetById(orderId, productId);
         if (entity != null)
         {
             _context.Set<Order_Detail>().Remove(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
         return entity;
     }

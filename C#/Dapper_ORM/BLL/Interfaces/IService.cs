@@ -4,14 +4,14 @@ namespace BLL.Interfaces
 {
     public interface IService<T, Tkey>
     {
-        Task<List<T>> GetAllAsync();
+        List<T> GetAll();
 
-        Task<T?> GetByIdAsync(Tkey id);
+        T? GetById(Tkey id);
 
-        Task<T> AddAsync(T entity);
+        T Add(T entity);
 
-        Task<T> UpdateAsync(T entity);
+        T Update(T entity);
 
-        Task<T?> DeleteAsync(Tkey id);
+        T? Delete(Tkey id);
     }
 }

@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public IActionResult Get(string id)
         {
             try
             {
-                var entity = await _service.GetByIdAsync(id);
+                var entity = _service.GetById(id);
                 return Ok(new GetTerritoryModel()
                 {
                     TerritoryID = entity.TerritoryID,
@@ -33,11 +33,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {
-                var entities = await _service.GetAllAsync();
+                var entities = _service.GetAll();
                 return Ok(entities.Select(entity => new GetTerritoryModel()
                 {
                     TerritoryID = entity.TerritoryID,
@@ -51,11 +51,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Add(AddTerritoryModel body)
+        public IActionResult Add(AddTerritoryModel body)
         {
             try
             {
-                return Ok(await _service.AddAsync(new Territory
+                return Ok(_service.Add(new Territory
                 {
                     TerritoryDescription = body.TerritoryDescription,
                     RegionID = body.RegionID,
@@ -67,11 +67,11 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, UpdateTerritoryModel body)
+        public IActionResult Update(string id, UpdateTerritoryModel body)
         {
             try
             {
-                return Ok(await _service.UpdateAsync(new Territory
+                return Ok(_service.Update(new Territory
                 {
                     TerritoryID = id,
                     TerritoryDescription = body.TerritoryDescription,
@@ -84,11 +84,11 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public IActionResult Delete(string id)
         {
             try
             {
-                return Ok(await _service.DeleteAsync(id));
+                return Ok(_service.Delete(id));
             }
             catch (Exception ex)
             {

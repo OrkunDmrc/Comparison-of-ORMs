@@ -13,13 +13,13 @@ public class RegionService : IService<Region, int>
         _repository = repository;
     }
 
-    public async Task<Region> AddAsync(Region entity) => await _repository.AddAsync(entity);
+    public Region Add(Region entity) => _repository.Add(entity);
 
-    public async Task<Region?> DeleteAsync(int id) => await _repository.DeleteAsync(id);
+    public Region? Delete(int id) => _repository.Delete(id);
 
-    public async Task<List<Region>> GetAllAsync() => await _repository.GetAllAsync();
+    public List<Region> GetAll() => _repository.GetAll();
 
-    public async Task<Region?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+    public Region? GetById(int id) => _repository.GetById(id);
 
-    public async Task<Region> UpdateAsync(Region entity) => await _repository.UpdateAsync(entity);
+    public Region Update(Region entity) => _repository.Update(entity);
 }

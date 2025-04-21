@@ -14,27 +14,27 @@ namespace BLL.Services
             _repository = repository;
         }
 
-        public async Task<TestDatum> AddAsync(TestDatum entity)
+        public TestDatum Add(TestDatum entity)
         {
-            return await _repository.AddAsync(entity);
+            return _repository.Add(entity);
         }
 
-        public Task<TestDatum?> DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<TestDatum>> GetAllAsync()
-        {
-            return await _repository.GetAllAsync();
-        }
-
-        public Task<TestDatum?> GetByIdAsync(int id)
+        public TestDatum? Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TestDatum> UpdateAsync(TestDatum entity)
+        public  List<TestDatum> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public TestDatum? GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TestDatum Update(TestDatum entity)
         {
             throw new NotImplementedException();
         }
