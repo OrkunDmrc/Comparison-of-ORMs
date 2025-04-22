@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A1BC04D8-C57A-485A-AA60-F9E4BACE4042}|API\\API.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1BC04D8-C57A-485A-AA60-F9E4BACE4042}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1BC04D8-C57A-485A-AA60-F9E4BACE4042}|API\\API.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\api\\controllers\\testdatumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BC04D8-C57A-485A-AA60-F9E4BACE4042}|API\\API.csproj|solutionrelative:api\\controllers\\testdatumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "API\\appsettings.json",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-21T13:22:03.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TestDatumController.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\Controllers\\TestDatumController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\TestDatumController.cs",
               "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\Controllers\\TestDatumController.cs",
               "RelativeToolTip": "API\\Controllers\\TestDatumController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAIA/wBMAAAAtAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAtwBMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T13:06:08.971Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TerritoryController.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\Controllers\\TerritoryController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\TerritoryController.cs",
@@ -51,12 +68,11 @@
               "RelativeToolTip": "API\\Controllers\\TerritoryController.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAawBUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T13:05:53.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T13:05:53.941Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\API\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\CustomerController.cs",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "API\\Controllers\\CustomerController.cs",
               "ViewState": "AQIAAHQAAAAAAAAAAAD4v4QAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T13:05:36.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T13:05:36.256Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\BLL\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "BLL\\Services\\OrderService.cs",
@@ -77,8 +92,7 @@
               "RelativeToolTip": "BLL\\Services\\OrderService.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAswCEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T13:04:46.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T13:04:46.28Z"
             }
           ]
         }
