@@ -90,7 +90,7 @@ const OrderService = {
 
     const testDatum = {
       Language: 'Node js',
-      TestName: 'Prisma Create Operation',
+      TestName: 'Prisma Update Operation',
       Performance: `${(end - start).toFixed(2)} ms`,
       MemoryUsage: `${((memAfter - memBefore) / 1024 / 1024).toFixed(2)} MB`,
       CpuUsage: `${(cpuAfter.user / 1000).toFixed(2)} ms`
@@ -114,7 +114,7 @@ const OrderService = {
 
     const testDatum = {
       Language: 'Node js',
-      TestName: 'Prisma Create Operation',
+      TestName: 'Prisma Delete Operation',
       Performance: `${(end - start).toFixed(2)} ms`,
       MemoryUsage: `${((memAfter - memBefore) / 1024 / 1024).toFixed(2)} MB`,
       CpuUsage: `${(cpuAfter.user / 1000).toFixed(2)} ms`
