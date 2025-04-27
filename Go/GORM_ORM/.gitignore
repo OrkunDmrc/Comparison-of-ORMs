@@ -1,0 +1,26 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Output of the go coverage tool
+*.coverprofile
+
+# Vendor dir (if you don't check in deps)
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Go workspaces (optional, if you use them)
+go.work
+go.work.sum
+
+.env

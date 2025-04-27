@@ -1,12 +1,69 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\entities\\testdatum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\entities\\testdatum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64F7FC81-1891-413B-9A6C-420DC1034C32}|BLL\\BLL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\bll\\services\\testdatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64F7FC81-1891-413B-9A6C-420DC1034C32}|BLL\\BLL.csproj|solutionrelative:bll\\services\\testdatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64F7FC81-1891-413B-9A6C-420DC1034C32}|BLL\\BLL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64F7FC81-1891-413B-9A6C-420DC1034C32}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestDatum.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Entities\\TestDatum.cs",
+              "RelativeDocumentMoniker": "DAL\\Entities\\TestDatum.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Entities\\TestDatum.cs",
+              "RelativeToolTip": "DAL\\Entities\\TestDatum.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T15:59:19.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestDatumService.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\BLL\\Services\\TestDatumService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\TestDatumService.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\BLL\\Services\\TestDatumService.cs",
+              "RelativeToolTip": "BLL\\Services\\TestDatumService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T15:59:11.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\BLL\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\BLL\\Services\\OrderService.cs",
+              "RelativeToolTip": "BLL\\Services\\OrderService.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwCsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T15:03:59.725Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
