@@ -30,8 +30,7 @@ func (r *OrderRepository) Create(ctx context.Context, order *entities.Order) (*e
 }
 
 func (r *OrderRepository) GetByID(ctx context.Context, id int) (*entities.Order, error) {
-	query := `SELECT OrderID, CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry 
-              FROM Orders WHERE OrderID = @p1`
+	query := `SELECT * FROM Orders WHERE OrderID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var order entities.Order
 	err := row.Scan(&order.OrderID, &order.CustomerID, &order.EmployeeID, &order.OrderDate, &order.RequiredDate, &order.ShippedDate,
@@ -62,8 +61,7 @@ func (r *OrderRepository) Delete(ctx context.Context, id int) error {
 }
 
 func (r *OrderRepository) GetAll(ctx context.Context) ([]*entities.Order, error) {
-	query := `SELECT OrderID, CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry 
-              FROM Orders`
+	query := `SELECT * FROM Orders`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

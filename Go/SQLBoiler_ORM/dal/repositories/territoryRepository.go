@@ -25,7 +25,7 @@ func (r *TerritoryRepository) Create(ctx context.Context, territory *entities.Te
 }
 
 func (r *TerritoryRepository) GetByID(ctx context.Context, id string) (*entities.Territory, error) {
-	query := `SELECT TerritoryID, TerritoryDescription, RegionID FROM Territories WHERE TerritoryID = @p1`
+	query := `SELECT * FROM Territories WHERE TerritoryID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var territory entities.Territory
 	err := row.Scan(&territory.TerritoryID, &territory.TerritoryDescription, &territory.RegionID)
@@ -51,7 +51,7 @@ func (r *TerritoryRepository) Delete(ctx context.Context, id string) error {
 }
 
 func (r *TerritoryRepository) GetAll(ctx context.Context) ([]*entities.Territory, error) {
-	query := `SELECT TerritoryID, TerritoryDescription, RegionID FROM Territories`
+	query := `SELECT * FROM Territories`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

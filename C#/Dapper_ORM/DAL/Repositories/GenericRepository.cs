@@ -10,7 +10,7 @@ namespace DAL.Repositories
         private readonly string _connectionString;
         private readonly string _tableName;
         private readonly string _primaryKey;
-        public GenericRepository(string connectionString, string tableName, string primaryKey) 
+        public GenericRepository(string connectionString, string tableName, string primaryKey)
         {
             _connectionString = connectionString;
             _tableName = tableName;
@@ -18,73 +18,64 @@ namespace DAL.Repositories
         }
 
         [Obsolete]
-        public List<T> GetAll()
+        public async Task<List<T>> GetAllAsync()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var query = $"SELECT * FROM {_tableName}";
-                var result = connection.Query<T>(query);
+                var result = await connection.QueryAsync<T>(query);
                 return result.ToList();
             }
         }
         [Obsolete]
-        public T? GetById(Tkey id)
+        public async Task<T?> GetByIdAsync(Tkey id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 var query = $"SELECT * FROM {_tableName} WHERE {_primaryKey} = @Id";
-                return connection.QueryFirstOrDefault<T>(query, new { Id = id });
+                return await connection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
             }
         }
         [Obsolete]
-        public T Add(T entity)
+        public async Task<T> AddAsync(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var columns = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => p.Name)).Replace(_primaryKey, "");
                 var parameters = string.Join(", ", typeof(T).GetProperties().Where(p => p.Name != _primaryKey).Select(p => "@" + p.Name)).Replace($"@{_primaryKey}", "");
                 var query = $"INSERT INTO {_tableName} ({columns}) VALUES ({parameters}); SELECT CAST(SCOPE_IDENTITY() as int);";
-                var id = connection.QuerySingle<int>(query, entity);
+                var id = await connection.QuerySingleAsync<int>(query, entity);
                 var propertyInfo = typeof(T).GetProperty(_primaryKey);
                 propertyInfo.SetValue(entity, id);
                 return entity;
             }
         }
         [Obsolete]
-        public T Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var setClause = string.Join(", ", typeof(T).GetProperties()
                     .Where(p => p.Name != _primaryKey)
                     .Select(p => $"{p.Name} = @{p.Name}"));
                 var propertyInfo = typeof(T).GetProperty(_primaryKey);
                 var id = propertyInfo.GetValue(entity);
                 var query = $"UPDATE {_tableName} SET {setClause} WHERE {_primaryKey} = {id}";
-                connection.Execute(query, entity);
-                return entity;
+                await connection.ExecuteAsync(query, entity);
             }
         }
         [Obsolete]
-        public T? Delete(Tkey id)
+        public async Task DeleteAsync(Tkey id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
-                var entity = connection.QueryFirstOrDefault<T>(
-                    $"SELECT * FROM {_tableName} WHERE {_primaryKey} = @Id",
-                    new { Id = id });
-                if (entity == null)
-                {
-                    return null;
-                }
+                await connection.OpenAsync();
                 var query = $"DELETE FROM {_tableName} WHERE {_primaryKey} = @Id";
-                connection.Execute(query, new { Id = id });
-                return entity;
+                await connection.ExecuteAsync(query, new { Id = id });
             }
         }
     }

@@ -14,12 +14,12 @@ public class Order_DetailService
         _repository = repository;
     }
 
-    public Order_Detail Add(Order_Detail entity) => _repository.Add(entity);
+    public async Task<Order_Detail> AddAsync(Order_Detail entity) => await _repository.AddAsync(entity);
 
-    public Order_Detail? Delete(int orderId, int productId) => _repository.Delete(orderId, productId);
+    public async Task DeleteAsync(int orderId, int productId) => await _repository.DeleteAsync(orderId, productId);
 
-    public List<Order_Detail> GetAll() => _repository.GetAll();
+    public async Task<List<Order_Detail>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public Order_Detail? GetById(int orderId, int productId) => _repository.GetById(orderId, productId);
+    public async Task<Order_Detail?> GetByIdAsync(int orderId, int productId) => await _repository.GetByIdAsync(orderId, productId);
 
 }

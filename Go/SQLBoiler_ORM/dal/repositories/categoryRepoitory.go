@@ -27,7 +27,7 @@ func (r *CategoryRepository) Create(ctx context.Context, category *entities.Cate
 }
 
 func (r *CategoryRepository) GetByID(ctx context.Context, id int) (*entities.Category, error) {
-	query := `SELECT CategoryID, CategoryName, Description, Picture FROM Categories WHERE CategoryID = @p1`
+	query := `SELECT * FROM Categories WHERE CategoryID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var category entities.Category
 	err := row.Scan(&category.CategoryID, &category.CategoryName, &category.Description, &category.Picture)
@@ -53,7 +53,7 @@ func (r *CategoryRepository) Delete(ctx context.Context, id int) error {
 }
 
 func (r *CategoryRepository) GetAll(ctx context.Context) ([]*entities.Category, error) {
-	query := `SELECT CategoryID, CategoryName, Description, Picture FROM Categories`
+	query := `SELECT * FROM Categories`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

@@ -1,11 +1,12 @@
 ﻿using BLL.Interfaces;
 using DAL.Entities;
+using DAL.Interfaces;
 using DAL.Repositories;
 using System.Diagnostics;
 
 namespace BLL.Services;
 
-public class OrderService : IService<Order, int>
+public class OrderService /*: IService<Order, int>*/
 {
     private readonly OrderRepository _repository;
     private readonly TestDatumRepository _testDatumRepository;
@@ -16,76 +17,61 @@ public class OrderService : IService<Order, int>
         _testDatumRepository = testDatumRepository;
     }
 
-    public Order Add(Order entity)
+    public async Task<Order> AddAsync(Order entity)
     {
-        var procBefore = Process.GetCurrentProcess();
-        var cpuBefore = procBefore.TotalProcessorTime;
-        var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
-
-        _repository.Add(entity);
-
+        await _repository.AddAsync(entity);
         stopwatch.Stop();
-        var procAfter = Process.GetCurrentProcess();
-        var cpuAfter = procAfter.TotalProcessorTime;
-        var memAfter = procAfter.WorkingSet64;
+
+        var memBefore = Process.GetCurrentProcess().WorkingSet64;
+        await _repository.AddAsync(entity);
+        var memAfter = Process.GetCurrentProcess().WorkingSet64;
 
         TestDatum testDatum = new TestDatum
         {
             Language = "Net Core",
-            TestName = "EF Get All Operation",
+            TestName = "EF Create Operation",
             Performance = $"{stopwatch.ElapsedMilliseconds} ms",
             MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms",
+            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
         };
 
-        _testDatumRepository.Add(testDatum);
+        await _testDatumRepository.AddAsync(testDatum);
         return entity;
 
     }
 
-    public Order? Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        var procBefore = Process.GetCurrentProcess();
-        var cpuBefore = procBefore.TotalProcessorTime;
-        var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
-
-        var entity = _repository.Delete(id);
-
+        await _repository.DeleteAsync(id);
         stopwatch.Stop();
-        var procAfter = Process.GetCurrentProcess();
-        var cpuAfter = procAfter.TotalProcessorTime;
-        var memAfter = procAfter.WorkingSet64;
+
+        var memBefore = Process.GetCurrentProcess().WorkingSet64;
+        await _repository.DeleteAsync(id);
+        var memAfter = Process.GetCurrentProcess().WorkingSet64;
 
         TestDatum testDatum = new TestDatum
         {
             Language = "Net Core",
-            TestName = "EF Get All Operation",
+            TestName = "EF Delete Operation",
             Performance = $"{stopwatch.ElapsedMilliseconds} ms",
             MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms",
+            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
         };
 
-        _testDatumRepository.Add(testDatum);
-
-        return entity;
+        await _testDatumRepository.AddAsync(testDatum);
     }
 
-    public List<Order> GetAll()
+    public async Task<List<Order>> GetAllAsync()
     {
-
-        var procBefore = Process.GetCurrentProcess();
-        var cpuBefore = procBefore.TotalProcessorTime;
-        var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
-
-        var entities = _repository.GetAll();
-
+        var entities = await _repository.GetAllAsync();
         stopwatch.Stop();
-        var procAfter = Process.GetCurrentProcess();
-        var cpuAfter = procAfter.TotalProcessorTime;
-        var memAfter = procAfter.WorkingSet64;
+
+        var memBefore = Process.GetCurrentProcess().WorkingSet64;
+        var entities2 = await _repository.GetAllAsync();
+        var memAfter = Process.GetCurrentProcess().WorkingSet64;
 
         TestDatum testDatum = new TestDatum
         {
@@ -93,26 +79,22 @@ public class OrderService : IService<Order, int>
             TestName = "EF Get All Operation",
             Performance = $"{stopwatch.ElapsedMilliseconds} ms",
             MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms",
+            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
         };
-        _testDatumRepository.Add(testDatum);
+        await _testDatumRepository.AddAsync(testDatum);
 
         return entities;
     }
 
-    public Order? GetById(int id)
+    public async Task<Order?> GetByIdAsync(int id)
     {
-        var procBefore = Process.GetCurrentProcess();
-        var cpuBefore = procBefore.TotalProcessorTime;
-        var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
-
-        var entity = _repository.GetById(id);
-
+        var entity = await _repository.GetByIdAsync(id);
         stopwatch.Stop();
-        var procAfter = Process.GetCurrentProcess();
-        var cpuAfter = procAfter.TotalProcessorTime;
-        var memAfter = procAfter.WorkingSet64;
+
+        var memBefore = Process.GetCurrentProcess().WorkingSet64;
+        var entity2 = await _repository.GetByIdAsync(id);
+        var memAfter = Process.GetCurrentProcess().WorkingSet64;
 
         TestDatum testDatum = new TestDatum
         {
@@ -120,27 +102,23 @@ public class OrderService : IService<Order, int>
             TestName = "EF Get Operation",
             Performance = $"{stopwatch.ElapsedMilliseconds} ms",
             MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms",
+            CpuUsage = $"{0} ms",
         };
 
-        _testDatumRepository.Add(testDatum);
+        await _testDatumRepository.AddAsync(testDatum);
 
         return entity;
     }
 
-    public Order Update(Order entity)
+    public async Task UpdateAsync(Order entity)
     {
-        var procBefore = Process.GetCurrentProcess();
-        var cpuBefore = procBefore.TotalProcessorTime;
-        var memBefore = procBefore.WorkingSet64;
         var stopwatch = Stopwatch.StartNew();
-
-        _repository.Update(entity);
-
+        await _repository.UpdateAsync(entity);
         stopwatch.Stop();
-        var procAfter = Process.GetCurrentProcess();
-        var cpuAfter = procAfter.TotalProcessorTime;
-        var memAfter = procAfter.WorkingSet64;
+
+        var memBefore = Process.GetCurrentProcess().WorkingSet64;
+        await _repository.UpdateAsync(entity);
+        var memAfter = Process.GetCurrentProcess().WorkingSet64;
 
         TestDatum testDatum = new TestDatum
         {
@@ -148,11 +126,9 @@ public class OrderService : IService<Order, int>
             TestName = "EF Get All Operation",
             Performance = $"{stopwatch.ElapsedMilliseconds} ms",
             MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{(cpuAfter - cpuBefore).TotalMilliseconds} ms",
+            CpuUsage = $"{0} ms",
         };
 
-        _testDatumRepository.Add(testDatum);
-
-        return entity;
+        await _testDatumRepository.AddAsync(testDatum);
     }
 }

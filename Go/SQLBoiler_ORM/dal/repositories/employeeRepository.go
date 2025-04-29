@@ -30,8 +30,7 @@ func (r *EmployeeRepository) Create(ctx context.Context, employee *entities.Empl
 }
 
 func (r *EmployeeRepository) GetByID(ctx context.Context, id int) (*entities.Employee, error) {
-	query := `SELECT EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath 
-              FROM Employees WHERE EmployeeID = @p1`
+	query := `SELECT * FROM Employees WHERE EmployeeID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var employee entities.Employee
 	err := row.Scan(&employee.EmployeeID, &employee.LastName, &employee.FirstName, &employee.Title, &employee.TitleOfCourtesy,
@@ -63,8 +62,7 @@ func (r *EmployeeRepository) Delete(ctx context.Context, id int) error {
 }
 
 func (r *EmployeeRepository) GetAll(ctx context.Context) ([]*entities.Employee, error) {
-	query := `SELECT EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath 
-              FROM Employees`
+	query := `SELECT * FROM Employees`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

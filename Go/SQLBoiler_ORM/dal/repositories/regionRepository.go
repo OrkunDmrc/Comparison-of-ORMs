@@ -16,7 +16,7 @@ func NewRegionRepository(db *sql.DB) *RegionRepository {
 }
 
 func (r *RegionRepository) Create(ctx context.Context, region *entities.Region) (*entities.Region, error) {
-	query := `INSERT INTO Regions (RegionID, RegionDescription) VALUES (@p1, @p2)`
+	query := `INSERT INTO Region (RegionID, RegionDescription) VALUES (@p1, @p2)`
 	_, execErr := r.db.ExecContext(ctx, query, region.RegionID, region.RegionDescription)
 	if execErr != nil {
 		return nil, execErr
@@ -25,7 +25,7 @@ func (r *RegionRepository) Create(ctx context.Context, region *entities.Region) 
 }
 
 func (r *RegionRepository) GetByID(ctx context.Context, id int) (*entities.Region, error) {
-	query := `SELECT RegionID, RegionDescription FROM Regions WHERE RegionID = @p1`
+	query := `SELECT * FROM Region WHERE RegionID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var region entities.Region
 	err := row.Scan(&region.RegionID, &region.RegionDescription)
@@ -39,19 +39,19 @@ func (r *RegionRepository) GetByID(ctx context.Context, id int) (*entities.Regio
 }
 
 func (r *RegionRepository) Update(ctx context.Context, region *entities.Region) error {
-	query := `UPDATE Regions SET RegionDescription = @p1 WHERE RegionID = @p2`
+	query := `UPDATE Region SET RegionDescription = @p1 WHERE RegionID = @p2`
 	_, err := r.db.ExecContext(ctx, query, region.RegionDescription, region.RegionID)
 	return err
 }
 
 func (r *RegionRepository) Delete(ctx context.Context, id int) error {
-	query := `DELETE FROM Regions WHERE RegionID = @p1`
+	query := `DELETE FROM Region WHERE RegionID = @p1`
 	_, err := r.db.ExecContext(ctx, query, id)
 	return err
 }
 
 func (r *RegionRepository) GetAll(ctx context.Context) ([]*entities.Region, error) {
-	query := `SELECT RegionID, RegionDescription FROM Regions`
+	query := `SELECT * FROM Region`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

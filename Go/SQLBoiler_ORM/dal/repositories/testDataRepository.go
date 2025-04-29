@@ -27,7 +27,7 @@ func (r *TestDataRepository) Create(ctx context.Context, testData *entities.Test
 }
 
 func (r *TestDataRepository) GetByID(ctx context.Context, id int) (*entities.TestData, error) {
-	query := `SELECT Id, TestName, CpuUsage, MemoryUsage, Performance, Language FROM TestData WHERE Id = @p1`
+	query := `SELECT * FROM TestData WHERE Id = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var testData entities.TestData
 	err := row.Scan(&testData.ID, &testData.TestName, &testData.CpuUsage, &testData.MemoryUsage, &testData.Performance, &testData.Language)

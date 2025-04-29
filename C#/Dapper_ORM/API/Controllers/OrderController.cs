@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var entity = _service.GetById(id);
+                var entity = await _service.GetByIdAsync(id);
                 return Ok(new GetOrderModel()
                 {
                     OrderID = entity.OrderID,
@@ -44,11 +44,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
-                var entities = _service.GetAll();
+                var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetOrderModel()
                 {
                     OrderID = entity.OrderID,
@@ -73,11 +73,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Add(AddOrderModel body)
+        public async Task<IActionResult> Add(AddOrderModel body)
         {
             try
             {
-                return Ok(_service.Add(new Order
+                return Ok(await _service.AddAsync(new Order
                 {
                     CustomerID = body.CustomerID,
                     EmployeeID = body.EmployeeID,
@@ -100,11 +100,11 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateOrderModel body)
+        public async Task<IActionResult> Update(int id, UpdateOrderModel body)
         {
             try
             {
-                return Ok(_service.Update(new Order
+                await _service.UpdateAsync(new Order
                 {
                     OrderID = id,
                     CustomerID = body.CustomerID,
@@ -120,7 +120,8 @@ namespace API.Controllers
                     ShipRegion = body.ShipRegion,
                     ShipPostalCode = body.ShipPostalCode,
                     ShipCountry = body.ShipCountry
-                }));
+                });
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -128,11 +129,12 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                return Ok(_service.Delete(id));
+                await _service.DeleteAsync(id);
+                return Ok();
             }
             catch (Exception ex)
             {

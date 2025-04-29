@@ -29,8 +29,7 @@ func (r *SupplierRepository) Create(ctx context.Context, supplier *entities.Supp
 }
 
 func (r *SupplierRepository) GetByID(ctx context.Context, id int) (*entities.Supplier, error) {
-	query := `SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax, HomePage 
-              FROM Suppliers WHERE SupplierID = @p1`
+	query := `SELECT * FROM Suppliers WHERE SupplierID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var supplier entities.Supplier
 	err := row.Scan(&supplier.SupplierID, &supplier.CompanyName, &supplier.ContactName, &supplier.ContactTitle, &supplier.Address,
@@ -59,8 +58,7 @@ func (r *SupplierRepository) Delete(ctx context.Context, id int) error {
 }
 
 func (r *SupplierRepository) GetAll(ctx context.Context) ([]*entities.Supplier, error) {
-	query := `SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax, HomePage 
-              FROM Suppliers`
+	query := `SELECT * FROM Suppliers`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

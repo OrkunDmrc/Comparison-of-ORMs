@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var entity = _service.GetById(id);
+                var entity = await _service.GetByIdAsync(id);
                 return Ok(new GetEmployeeModel()
                 {
                     EmployeeID = entity.EmployeeID,
@@ -48,11 +48,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
-                var entities = _service.GetAll();
+                var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetEmployeeModel()
                 {
                     EmployeeID = entity.EmployeeID,
@@ -81,44 +81,12 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Add(AddEmployeeModel body)
+        public async Task<IActionResult> Add(AddEmployeeModel body)
         {
             try
             {
-                return Ok(_service.Add(new Employee
+                return Ok(await _service.AddAsync(new Employee
                 {
-                    LastName = body.LastName,
-                    FirstName = body.FirstName,
-                    Title = body.Title,
-                    TitleOfCourtesy= body.TitleOfCourtesy, 
-                    BirthDate = body.BirthDate,
-                    HireDate = body.HireDate,
-                    Address = body.Address,
-                    City = body.City,
-                    Region = body.Region,
-                    PostalCode = body.PostalCode,
-                    Country = body.Country,
-                    HomePhone = body.HomePhone,
-                    Extension = body.Extension,
-                    Photo = body.Photo,
-                    Notes = body.Notes,
-                    ReportsTo = body.ReportsTo,
-                    PhotoPath = body.PhotoPath,
-                }));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateEmployeeModel body)
-        {
-            try
-            {
-                return Ok(_service.Update(new Employee
-                {
-                    EmployeeID = id,
                     LastName = body.LastName,
                     FirstName = body.FirstName,
                     Title = body.Title,
@@ -143,12 +111,46 @@ namespace API.Controllers
                 return BadRequest(ex);
             }
         }
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, UpdateEmployeeModel body)
         {
             try
             {
-                return Ok(_service.Delete(id));
+                await _service.UpdateAsync(new Employee
+                {
+                    EmployeeID = id,
+                    LastName = body.LastName,
+                    FirstName = body.FirstName,
+                    Title = body.Title,
+                    TitleOfCourtesy = body.TitleOfCourtesy,
+                    BirthDate = body.BirthDate,
+                    HireDate = body.HireDate,
+                    Address = body.Address,
+                    City = body.City,
+                    Region = body.Region,
+                    PostalCode = body.PostalCode,
+                    Country = body.Country,
+                    HomePhone = body.HomePhone,
+                    Extension = body.Extension,
+                    Photo = body.Photo,
+                    Notes = body.Notes,
+                    ReportsTo = body.ReportsTo,
+                    PhotoPath = body.PhotoPath,
+                });
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await _service.DeleteAsync(id);
+                return Ok();
             }
             catch (Exception ex)
             {

@@ -16,11 +16,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{orderId}&{productId}")]
-        public IActionResult Get(int orderId, int productId)
+        public async Task<IActionResult> GetAsync(int orderId, int productId)
         {
             try
             {
-                var entity = _service.GetByIdAsync(orderId, productId);
+                var entity = await _service.GetByIdAsync(orderId, productId);
                 return Ok(new GetOrder_DetailModel()
                 {
                     OrderID = entity.OrderID,
@@ -36,11 +36,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> GetAsync()
         {
             try
             {
-                var entities = _service.GetAllAsync();
+                var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetOrder_DetailModel()
                 {
                     OrderID = entity.OrderID,
@@ -56,11 +56,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Add(AddOrder_DetailModel body)
+        public async Task<IActionResult> AddAsync(AddOrder_DetailModel body)
         {
             try
             {
-                return Ok(_service.Add(new Order_Detail
+                return Ok(await _service.AddAsync(new Order_Detail
                 {
                     OrderID = body.OrderID,
                     ProductID = body.ProductID,
@@ -75,11 +75,12 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{orderId}&{productId}")]
-        public IActionResult Delete(int orderId, int productId)
+        public async Task<IActionResult> DeleteAsync(int orderId, int productId)
         {
             try
             {
-                return Ok(_service.Delete(orderId, productId));
+                await _service.DeleteAsync(orderId, productId);
+                return Ok();
             }
             catch (Exception ex)
             {

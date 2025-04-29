@@ -8,35 +8,35 @@ namespace DAL.Repositories
     public class GenericRepository<T, Tkey> where T : class, IEntity
     {
         private MyAppDbContext _context;
-        public GenericRepository(MyAppDbContext context) 
+        public GenericRepository(MyAppDbContext context)
         {
             _context = context;
         }
-        public List<T> GetAll() => _context.Set<T>().ToList();
+        public async Task<List<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 
-        public T? GetById(Tkey id) => _context.Set<T>().Find(id);
+        public async Task<T?> GetByIdAsync(Tkey id) => await _context.Set<T>().FindAsync(id);
 
-        public T Add(T entity)
+        public async Task<T> AddAsync(T entity)
         {
-            _context.Set<T>().Add(entity);
-            _context.SaveChanges();
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
             return entity;
         }
 
-        public T Update(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
             _context.Set<T>().Update(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return entity;
         }
-        
-        public T? Delete(Tkey id) 
+
+        public async Task<T?> DeleteAsync(Tkey id)
         {
-            var entity = GetById(id);
+            var entity = await GetByIdAsync(id);
             if (entity != null)
             {
                 _context.Set<T>().Remove(entity);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return entity;
         }

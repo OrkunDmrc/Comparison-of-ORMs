@@ -15,11 +15,11 @@ namespace API.Controllers
             _service = service;
         }
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var entity = _service.GetById(id);
+                var entity = await _service.GetByIdAsync(id);
                 return Ok(new GetRegionModel()
                 {
                     RegionID = entity.RegionID,
@@ -32,11 +32,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
-                var entities = _service.GetAll();
+                var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetRegionModel()
                 {
                     RegionID = entity.RegionID,
@@ -49,11 +49,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Add(AddRegionModel body)
+        public async Task<IActionResult> Add(AddRegionModel body)
         {
             try
             {
-                return Ok(_service.Add(new Region
+                return Ok(await _service.AddAsync(new Region
                 {
                     RegionDescription = body.RegionDescription,
                 }));
@@ -64,15 +64,16 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateRegionModel body)
+        public async Task<IActionResult> Update(int id, UpdateRegionModel body)
         {
             try
             {
-                return Ok(_service.Update(new Region
+                await _service.UpdateAsync(new Region
                 {
                     RegionID = id,
                     RegionDescription = body.RegionDescription,
-                }));
+                });
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -80,11 +81,12 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                return Ok(_service.Delete(id));
+                await _service.DeleteAsync(id);
+                return Ok();
             }
             catch (Exception ex)
             {

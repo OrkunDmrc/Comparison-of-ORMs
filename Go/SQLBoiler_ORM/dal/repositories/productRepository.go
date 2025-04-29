@@ -29,8 +29,7 @@ func (r *ProductRepository) Create(ctx context.Context, product *entities.Produc
 }
 
 func (r *ProductRepository) GetByID(ctx context.Context, id int) (*entities.Product, error) {
-	query := `SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued 
-              FROM Products WHERE ProductID = @p1`
+	query := `SELECT * FROM Products WHERE ProductID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var product entities.Product
 	err := row.Scan(&product.ProductID, &product.ProductName, &product.SupplierID, &product.CategoryID, &product.QuantityPerUnit,
@@ -59,8 +58,7 @@ func (r *ProductRepository) Delete(ctx context.Context, id int) error {
 }
 
 func (r *ProductRepository) GetAll(ctx context.Context) ([]*entities.Product, error) {
-	query := `SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued 
-              FROM Products`
+	query := `SELECT * FROM Products`
 	rows, err := r.db.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err

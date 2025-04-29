@@ -5,7 +5,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class ShipperService : IService<Shipper, int>
+public class ShipperService /*: IService<Shipper, int>*/
 {
     private readonly ShipperRepository _repository;
 
@@ -14,13 +14,13 @@ public class ShipperService : IService<Shipper, int>
         _repository = repository;
     }
 
-    public Shipper Add(Shipper entity) => _repository.Add(entity);
+    public async Task<Shipper> AddAsync(Shipper entity) => await _repository.AddAsync(entity);
 
-    public Shipper? Delete(int id) => _repository.Delete(id);
+    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
-    public List<Shipper> GetAll() => _repository.GetAll();
+    public async Task<List<Shipper>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public Shipper? GetById(int id) => _repository.GetById(id);
+    public async Task<Shipper?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public Shipper Update(Shipper entity) => _repository.Update(entity);
+    public async Task UpdateAsync(Shipper entity) => await _repository.UpdateAsync(entity);
 }

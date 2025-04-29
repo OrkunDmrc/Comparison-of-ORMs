@@ -13,25 +13,24 @@ public class Order_DetailRepository
         _context = context;
     }
 
-    public List<Order_Detail> GetAll() => _context.Set<Order_Detail>().ToList();
+    public async Task<List<Order_Detail>> GetAllAsync() => await _context.Set<Order_Detail>().ToListAsync();
 
-    public Order_Detail? GetById(int orderId, int productId) => _context.Set<Order_Detail>().First(e => e.OrderID == orderId && e.ProductID == productId);
+    public async Task<Order_Detail?> GetByIdAsync(int orderId, int productId) => await _context.Set<Order_Detail>().FirstAsync(e => e.OrderID == orderId && e.ProductID == productId);
 
-    public Order_Detail Add(Order_Detail entity)
+    public async Task<Order_Detail> AddAsync(Order_Detail entity)
     {
-        _context.Set<Order_Detail>().Add(entity);
-        _context.SaveChanges();
+        await _context.Set<Order_Detail>().AddAsync(entity);
+        await _context.SaveChangesAsync();
         return entity;
     }
 
-    public Order_Detail? Delete(int orderId, int productId)
+    public async Task DeleteAsync(int orderId, int productId)
     {
-        var entity = GetById(orderId, productId);
+        var entity = await GetByIdAsync(orderId, productId);
         if (entity != null)
         {
             _context.Set<Order_Detail>().Remove(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        return entity;
     }
 }

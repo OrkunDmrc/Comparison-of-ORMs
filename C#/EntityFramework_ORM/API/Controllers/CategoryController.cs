@@ -1,9 +1,7 @@
 ﻿using API.Models.CategoyModels;
 using BLL.Services;
 using DAL.Entities;
-using DAL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace API.Controllers
 {
@@ -18,11 +16,11 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
             try
             {
-                var entity = _service.GetById(id);
+                var entity = await _service.GetByIdAsync(id);
                 return Ok(new GetCategoryModel()
                 {
                     CategoryID = entity.CategoryID,
@@ -37,11 +35,11 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> GetAsync()
         {
             try
             {
-                var entities = _service.GetAll();
+                var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetCategoryModel()
                 {
                     CategoryID = entity.CategoryID,
@@ -56,11 +54,11 @@ namespace API.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Add(AddCategoryModel body)
+        public async Task<IActionResult> AddAsync(AddCategoryModel body)
         {
             try
             {
-                return Ok(_service.Add(new Category
+                return Ok(await _service.AddAsync(new Category
                 {
                     CategoryName = body.CategoryName,
                     Description = body.Description,
@@ -73,17 +71,18 @@ namespace API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateCategoryModel body)
+        public async Task<IActionResult> UpdateAsync(int id, UpdateCategoryModel body)
         {
             try
             {
-                return Ok(_service.Update(new Category
+                await _service.UpdateAsync(new Category
                 {
                     CategoryID = id,
                     CategoryName = body.CategoryName,
                     Description = body.Description,
                     Picture = body.Picture
-                }));
+                });
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -91,11 +90,12 @@ namespace API.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
-                return Ok(_service.Delete(id));
+                await _service.DeleteAsync(id);
+                return Ok();
             }
             catch (Exception ex)
             {

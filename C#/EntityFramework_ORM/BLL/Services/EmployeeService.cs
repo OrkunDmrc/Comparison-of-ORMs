@@ -4,7 +4,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class EmployeeService : IService<Employee, int>
+public class EmployeeService/* : IService<Employee, int>*/
 {
     private readonly EmployeeRepository _repository;
 
@@ -13,13 +13,13 @@ public class EmployeeService : IService<Employee, int>
         _repository = repository;
     }
 
-    public Employee Add(Employee entity) => _repository.Add(entity);
+    public async Task<Employee> AddAsync(Employee entity) => await _repository.AddAsync(entity);
 
-    public Employee? Delete(int id) => _repository.Delete(id);
+    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
-    public List<Employee> GetAll() => _repository.GetAll();
+    public async Task<List<Employee>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public Employee? GetById(int id) => _repository.GetById(id);
+    public async Task<Employee?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public Employee Update(Employee entity) => _repository.Update(entity);
+    public async Task UpdateAsync(Employee entity) => await _repository.UpdateAsync(entity);
 }

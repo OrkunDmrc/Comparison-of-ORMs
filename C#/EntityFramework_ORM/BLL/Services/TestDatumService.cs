@@ -5,7 +5,7 @@ using DAL.Repositories;
 
 namespace BLL.Services
 {
-    public class TestDatumService : IService<TestDatum, int>
+    public class TestDatumService /*: IService<TestDatum, int>*/
     {
         private readonly TestDatumRepository _repository;
 
@@ -14,27 +14,27 @@ namespace BLL.Services
             _repository = repository;
         }
 
-        public TestDatum Add(TestDatum entity)
+        public async Task<TestDatum> AddAsync(TestDatum entity)
         {
-            return _repository.Add(entity);
+            return await _repository.AddAsync(entity);
         }
 
-        public TestDatum? Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public  List<TestDatum> GetAll()
-        {
-            return _repository.GetAll();
-        }
-
-        public TestDatum? GetById(int id)
+        public Task<TestDatum?> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public TestDatum Update(TestDatum entity)
+        public async Task<List<TestDatum>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public Task<TestDatum?> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TestDatum> UpdateAsync(TestDatum entity)
         {
             throw new NotImplementedException();
         }

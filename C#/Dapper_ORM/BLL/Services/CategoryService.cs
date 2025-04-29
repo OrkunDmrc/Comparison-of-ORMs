@@ -4,7 +4,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class CategoryService : IService<Category, int>
+public class CategoryService /*: IService<Category, int>*/
 {
     private readonly CategoryRepository _repository;
 
@@ -13,13 +13,13 @@ public class CategoryService : IService<Category, int>
         _repository = repository;
     }
 
-    public Category Add(Category entity) => _repository.Add(entity);
-    
-    public Category? Delete(int id) => _repository.Delete(id);
+    public async Task<Category> AddAsync(Category entity) => await _repository.AddAsync(entity);
 
-    public List<Category> GetAll() => _repository.GetAll();
+    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
-    public Category? GetById(int id) => _repository.GetById(id);
+    public async Task<List<Category>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public Category Update(Category entity) => _repository.Update(entity);
+    public async Task<Category?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+
+    public async Task UpdateAsync(Category entity) => await _repository.UpdateAsync(entity);
 }

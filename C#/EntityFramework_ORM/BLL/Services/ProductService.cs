@@ -4,7 +4,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class ProductService : IService<Product, int>
+public class ProductService /*: IService<Product, int>*/
 {
     private readonly ProductRepository _repository;
 
@@ -13,13 +13,13 @@ public class ProductService : IService<Product, int>
         _repository = repository;
     }
 
-    public Product Add(Product entity) => _repository.Add(entity);
+    public async Task<Product> AddAsync(Product entity) => await _repository.AddAsync(entity);
 
-    public Product? Delete(int id) => _repository.Delete(id);
+    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
-    public List<Product> GetAll() => _repository.GetAll();
+    public async Task<List<Product>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public Product? GetById(int id) => _repository.GetById(id);
+    public async Task<Product?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    public Product Update(Product entity) => _repository.Update(entity);
+    public async Task UpdateAsync(Product entity) => await _repository.UpdateAsync(entity);
 }

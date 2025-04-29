@@ -27,8 +27,7 @@ func (r *CustomerRepository) Create(ctx context.Context, customer *entities.Cust
 }
 
 func (r *CustomerRepository) GetByID(ctx context.Context, id string) (*entities.Customer, error) {
-	query := `SELECT CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax 
-              FROM Customers WHERE CustomerID = @p1`
+	query := `SELECT * FROM Customers WHERE CustomerID = @p1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var customer entities.Customer
 	err := row.Scan(&customer.CustomerID, &customer.CompanyName, &customer.ContactName, &customer.ContactTitle,
