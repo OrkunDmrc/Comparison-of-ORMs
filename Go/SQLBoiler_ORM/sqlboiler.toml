@@ -1,0 +1,22 @@
+[mssql]
+dbname   = "NorthwindTest"
+host     = "localhost"
+port     = 1433
+user     = "sa"
+pass     = "123456"
+schema   = "dbo"
+sslmode  = "disable"
+driver   = "mssql"
+
+[templates]
+layout = "templates"
+
+[output]
+pkgname  = "entities"
+folder = "dal/entities"
+
+[aliases]
+mssql = "mssql"
+
+[safety]
+omitcols = []
