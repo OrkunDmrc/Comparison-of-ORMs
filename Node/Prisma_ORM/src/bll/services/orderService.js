@@ -8,7 +8,7 @@ const OrderService = {
     const cpuBefore = process.cpuUsage();
     const memBefore = process.memoryUsage().rss;
     const start = performance.now();
-
+    console.log("içerde");
     const entities = await OrderRepository.getAll();
 
     const end = performance.now();

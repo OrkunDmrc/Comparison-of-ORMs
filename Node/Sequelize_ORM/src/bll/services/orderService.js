@@ -25,7 +25,6 @@ class OrderService {
 
     
     await TestDatumRepository.create(testDatum);
-    console.log(testDatum);
     return entities
   }
 

@@ -31,6 +31,7 @@ class OrderService:
         test_datum.performance = f"{(end_time - start_time) * 1000:.2f} ms"
         test_datum.memory_usage = f"{(mem_after - mem_before) / 1024 / 1024:.2f} MB"
         test_datum.cpu_usage = f"{(cpu_after.user - cpu_before.user) * 1000:.2f} ms"
+        print(test_datum)
         self.test_datum_repo.create(test_datum)
 
         return entity

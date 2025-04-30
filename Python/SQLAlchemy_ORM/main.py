@@ -12,13 +12,24 @@ from api.routers.shipper_router import router as shipper_router
 from api.routers.supplier_router import router as supplier_router
 from api.routers.territory_router import router as territory_router
 from api.routers.test_datum_router import router as test_Datum_router
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Starting up!")
+    yield
+    print("Shutting down!")
+
+app = FastAPI(lifespan=lifespan)
+
+init_db()
+
+"""app = FastAPI()
 
 @app.on_event("startup")
 def startup():
-    init_db()
-
+    init_db()"""
+#uvicorn main:app --reload
 app.include_router(category_router)
 app.include_router(customer_router)
 app.include_router(employee_router)

@@ -9,37 +9,51 @@ import (
 type OrderRepository interface {
 	GetAll() ([]entities.Order, error)
 	GetByID(id int) (*entities.Order, error)
-	Create(entity *entities.Order) error
+	Create(entity *entities.Order) (*entities.Order, error)
 	Update(entity *entities.Order) error
 	Delete(id int) error
 }
 
 type orderRepository struct {
-	genericRepo GenericRepository[entities.Order]
+	//genericRepo GenericRepository[entities.Order]
+	db *gorm.DB
 }
 
 func NewOrderRepository(db *gorm.DB) OrderRepository {
 	return &orderRepository{
-		genericRepo: NewGenericRepository[entities.Order](db),
+		//genericRepo: NewGenericRepository[entities.Order](db),
+		db: db,
 	}
 }
 
 func (r *orderRepository) GetAll() ([]entities.Order, error) {
-	return r.genericRepo.GetAll()
+	var entities []entities.Order
+	err := r.db.Find(&entities).Error
+	return entities, err
 }
 
 func (r *orderRepository) GetByID(id int) (*entities.Order, error) {
-	return r.genericRepo.GetByID(id)
+	var entity entities.Order
+	err := r.db.First(&entity, id).Error
+	if err != nil {
+		return nil, err
+	}
+	return &entity, nil
 }
 
-func (r *orderRepository) Create(entity *entities.Order) error {
-	return r.genericRepo.Create(entity)
+func (r *orderRepository) Create(entity *entities.Order) (*entities.Order, error) {
+	err := r.db.Create(entity).Error
+	if err != nil {
+		return nil, err
+	}
+	return entity, nil
 }
 
 func (r *orderRepository) Update(entity *entities.Order) error {
-	return r.genericRepo.Update(entity)
+	return r.db.Save(entity).Error
 }
 
 func (r *orderRepository) Delete(id int) error {
-	return r.genericRepo.Delete(id)
+	var entity entities.Order
+	return r.db.Delete(&entity, id).Error
 }

@@ -6,7 +6,7 @@ from dal.data.base import Base
 # Your raw ODBC connection string
 odbc_str = (
     "Driver={ODBC Driver 17 for SQL Server};"
-    "Server=ORKUN\\SQLEXPRESS;"
+    "Server=localhost,1433;"
     "Database=NorthwindTest;"
     "UID=sa;"
     "PWD=123456;"

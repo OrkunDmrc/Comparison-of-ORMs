@@ -13,7 +13,7 @@ import (
 type OrderService interface {
 	GetAll() ([]entities.Order, error)
 	GetByID(id int) (*entities.Order, error)
-	Create(order *entities.Order) error
+	Create(order *entities.Order) (*entities.Order, error)
 	Update(order *entities.Order) error
 	Delete(id int) error
 }
@@ -93,15 +93,15 @@ func (s *orderService) GetByID(id int) (*entities.Order, error) {
 	return entity, nil
 }
 
-func (s *orderService) Create(order *entities.Order) error {
+func (s *orderService) Create(order *entities.Order) (*entities.Order, error) {
 	var memStatsBefore, memStatsAfter runtime.MemStats
 	cpuBefore := getCPUTime()
 	runtime.ReadMemStats(&memStatsBefore)
 	start := time.Now()
 
-	err := s.repo.Create(order)
+	entity, err := s.repo.Create(order)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	duration := time.Since(start)
@@ -119,8 +119,10 @@ func (s *orderService) Create(order *entities.Order) error {
 	}
 
 	err = s.testDataRepo.Create(testData)
-
-	return err
+	if err != nil {
+		return nil, err
+	}
+	return entity, err
 }
 
 func (s *orderService) Update(order *entities.Order) error {

@@ -43,11 +43,12 @@ func (h *OrderAPI) Create(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	if err := h.Service.Create(&entity); err != nil {
+	order, err := h.Service.Create(&entity)
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusCreated, entity)
+	c.JSON(http.StatusCreated, order)
 }
 
 func (h *OrderAPI) Update(c *gin.Context) {
