@@ -22,7 +22,7 @@ builder.Services.AddScoped<EmployeeRepository>(provider => new EmployeeRepositor
 builder.Services.AddScoped<Order_DetailService>();
 builder.Services.AddScoped<Order_DetailRepository>(provider => new Order_DetailRepository(connectionString));
 builder.Services.AddScoped<OrderService>();
-builder.Services.AddScoped<OrderRepository>(provider => new OrderRepository(connectionString));
+builder.Services.AddScoped<OrderRepository>(provider => new OrderRepository(connectionString, new TestDatumRepository(connectionString)));
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<ProductRepository>(provider => new ProductRepository(connectionString));
 builder.Services.AddScoped<ShipperService>();

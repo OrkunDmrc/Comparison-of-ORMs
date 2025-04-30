@@ -1,48 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\testdatumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\testdatumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\territoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\territoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\shipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\shipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\regionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\regionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|c:\\users\\orkun\\onedrive\\masa\u00FCst\u00FC\\ue\\second\\thesis\\comparison of orms\\c#\\dapper_orm\\dal\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9190344B-4BEC-40DB-A000-6CFAE1017982}|DAL\\DAL.csproj|solutionrelative:dal\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -50,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -147,127 +106,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestDatumRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\TestDatumRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\TestDatumRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\TestDatumRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\TestDatumRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:24:34.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TerritoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\TerritoryRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\TerritoryRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\TerritoryRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\TerritoryRepository.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA3wC4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:23:17.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SupplierRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\SupplierRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\SupplierRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\SupplierRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\SupplierRepository.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAgwDwAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:18:53.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShipperRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\ShipperRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\ShipperRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\ShipperRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\ShipperRepository.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAYwCIAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:16:40.684Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\RegionRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\RegionRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\RegionRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\RegionRepository.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAYwC0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:13:30.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\ProductRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\ProductRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\ProductRepository.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAowDEAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:10:41.77Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\OrderRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\OrderRepository.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwEAAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:03:32.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EmployeeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\EmployeeRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\EmployeeRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\EmployeeRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\EmployeeRepository.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAkwC4AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:56:48.917Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\CustomerRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\CustomerRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\CustomerRepository.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAkwDsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:51:58.256Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repositories\\CategoryRepository.cs",
-              "ToolTip": "C:\\Users\\orkun\\OneDrive\\Masa\u00FCst\u00FC\\ue\\second\\thesis\\Comparison of ORMs\\C#\\Dapper_ORM\\DAL\\Repositories\\CategoryRepository.cs",
-              "RelativeToolTip": "DAL\\Repositories\\CategoryRepository.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAkwD4AAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:51:04.41Z"
             }
           ]
         }

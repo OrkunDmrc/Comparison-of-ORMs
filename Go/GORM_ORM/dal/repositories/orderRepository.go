@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"GORM_ORM/dal/entities"
+	"time"
 
 	"gorm.io/gorm"
 )
@@ -16,25 +17,56 @@ type OrderRepository interface {
 
 type orderRepository struct {
 	//genericRepo GenericRepository[entities.Order]
-	db *gorm.DB
+	db           *gorm.DB
+	testDataRepo TestDataRepository
 }
 
-func NewOrderRepository(db *gorm.DB) OrderRepository {
+func NewOrderRepository(db *gorm.DB, testDataRepo TestDataRepository) OrderRepository {
 	return &orderRepository{
 		//genericRepo: NewGenericRepository[entities.Order](db),
-		db: db,
+		db:           db,
+		testDataRepo: testDataRepo,
 	}
 }
 
 func (r *orderRepository) GetAll() ([]entities.Order, error) {
-	var entities []entities.Order
-	err := r.db.Find(&entities).Error
-	return entities, err
+	var orders []entities.Order
+	start := time.Now()
+	err := r.db.Find(&orders).Error
+	duration := time.Since(start)
+	if err != nil {
+		return nil, err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("GORM Get All Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr( /*strconv.FormatInt(cpuUsageMs, 10)*/ "0 ms"),
+	}
+	err = r.testDataRepo.Create(testData)
+	if err != nil {
+		return nil, err
+	}
+	return orders, err
 }
 
 func (r *orderRepository) GetByID(id int) (*entities.Order, error) {
 	var entity entities.Order
+	start := time.Now()
 	err := r.db.First(&entity, id).Error
+	duration := time.Since(start)
+	if err != nil {
+		return nil, err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("GORM Get Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr( /*strconv.FormatInt(cpuUsageMs, 10)*/ "0 ms"),
+	}
+	err = r.testDataRepo.Create(testData)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +74,20 @@ func (r *orderRepository) GetByID(id int) (*entities.Order, error) {
 }
 
 func (r *orderRepository) Create(entity *entities.Order) (*entities.Order, error) {
+	start := time.Now()
 	err := r.db.Create(entity).Error
+	duration := time.Since(start)
+	if err != nil {
+		return nil, err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("GORM Create Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr( /*strconv.FormatInt(cpuUsageMs, 10)*/ "0 ms"),
+	}
+	err = r.testDataRepo.Create(testData)
 	if err != nil {
 		return nil, err
 	}
@@ -50,10 +95,48 @@ func (r *orderRepository) Create(entity *entities.Order) (*entities.Order, error
 }
 
 func (r *orderRepository) Update(entity *entities.Order) error {
-	return r.db.Save(entity).Error
+	start := time.Now()
+	err := r.db.Save(entity).Error
+	duration := time.Since(start)
+	if err != nil {
+		return err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("GORM Update Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr( /*strconv.FormatInt(cpuUsageMs, 10)*/ "0 ms"),
+	}
+	err = r.testDataRepo.Create(testData)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (r *orderRepository) Delete(id int) error {
 	var entity entities.Order
-	return r.db.Delete(&entity, id).Error
+	start := time.Now()
+	err := r.db.Delete(&entity, id).Error
+	duration := time.Since(start)
+	if err != nil {
+		return err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("GORM Delete Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr( /*strconv.FormatInt(cpuUsageMs, 10)*/ "0 ms"),
+	}
+	err = r.testDataRepo.Create(testData)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func stringPtr(s string) *string {
+	return &s
 }

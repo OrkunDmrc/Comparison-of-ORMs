@@ -89,8 +89,8 @@ func main() {
 		testDataGroup.DELETE("/:id", testDataAPI.Delete)
 	}
 
-	orderRepo := repositories.NewOrderRepository(db)
-	orderService := services.NewOrderService(orderRepo, testDataRepo)
+	orderRepo := repositories.NewOrderRepository(db, testDataRepo)
+	orderService := services.NewOrderService(orderRepo)
 	orderAPI := api.NewOrderAPI(orderService)
 	orderGroup := router.Group("/orders")
 	{

@@ -17,118 +17,13 @@ public class OrderService /*: IService<Order, int>*/
         _testDatumRepository = testDatumRepository;
     }
 
-    public async Task<Order> AddAsync(Order entity)
-    {
-        var stopwatch = Stopwatch.StartNew();
-        await _repository.AddAsync(entity);
-        stopwatch.Stop();
+    public async Task<Order> AddAsync(Order entity) => await _repository.AddAsync(entity);
 
-        var memBefore = Process.GetCurrentProcess().WorkingSet64;
-        await _repository.AddAsync(entity);
-        var memAfter = Process.GetCurrentProcess().WorkingSet64;
+    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
-        TestDatum testDatum = new TestDatum
-        {
-            Language = "Net Core",
-            TestName = "EF Create Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
-            MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
-        };
+    public async Task<List<Order>> GetAllAsync() => await _repository.GetAllAsync();
 
-        await _testDatumRepository.AddAsync(testDatum);
-        return entity;
+    public async Task<Order?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
-    }
-
-    public async Task DeleteAsync(int id)
-    {
-        var stopwatch = Stopwatch.StartNew();
-        await _repository.DeleteAsync(id);
-        stopwatch.Stop();
-
-        var memBefore = Process.GetCurrentProcess().WorkingSet64;
-        await _repository.DeleteAsync(id);
-        var memAfter = Process.GetCurrentProcess().WorkingSet64;
-
-        TestDatum testDatum = new TestDatum
-        {
-            Language = "Net Core",
-            TestName = "EF Delete Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
-            MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
-        };
-
-        await _testDatumRepository.AddAsync(testDatum);
-    }
-
-    public async Task<List<Order>> GetAllAsync()
-    {
-        var stopwatch = Stopwatch.StartNew();
-        var entities = await _repository.GetAllAsync();
-        stopwatch.Stop();
-
-        var memBefore = Process.GetCurrentProcess().WorkingSet64;
-        var entities2 = await _repository.GetAllAsync();
-        var memAfter = Process.GetCurrentProcess().WorkingSet64;
-
-        TestDatum testDatum = new TestDatum
-        {
-            Language = "Net Core",
-            TestName = "EF Get All Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
-            MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
-        };
-        await _testDatumRepository.AddAsync(testDatum);
-
-        return entities;
-    }
-
-    public async Task<Order?> GetByIdAsync(int id)
-    {
-        var stopwatch = Stopwatch.StartNew();
-        var entity = await _repository.GetByIdAsync(id);
-        stopwatch.Stop();
-
-        var memBefore = Process.GetCurrentProcess().WorkingSet64;
-        var entity2 = await _repository.GetByIdAsync(id);
-        var memAfter = Process.GetCurrentProcess().WorkingSet64;
-
-        TestDatum testDatum = new TestDatum
-        {
-            Language = "Net Core",
-            TestName = "EF Get Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
-            MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{0} ms",
-        };
-
-        await _testDatumRepository.AddAsync(testDatum);
-
-        return entity;
-    }
-
-    public async Task UpdateAsync(Order entity)
-    {
-        var stopwatch = Stopwatch.StartNew();
-        await _repository.UpdateAsync(entity);
-        stopwatch.Stop();
-
-        var memBefore = Process.GetCurrentProcess().WorkingSet64;
-        await _repository.UpdateAsync(entity);
-        var memAfter = Process.GetCurrentProcess().WorkingSet64;
-
-        TestDatum testDatum = new TestDatum
-        {
-            Language = "Net Core",
-            TestName = "EF Get All Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
-            MemoryUsage = $"{(memAfter - memBefore) / 1024 / 1024} MB",
-            CpuUsage = $"{0} ms",
-        };
-
-        await _testDatumRepository.AddAsync(testDatum);
-    }
+    public async Task UpdateAsync(Order entity) => await _repository.UpdateAsync(entity);
 }
