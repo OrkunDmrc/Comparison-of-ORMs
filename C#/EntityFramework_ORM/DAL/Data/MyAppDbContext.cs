@@ -30,6 +30,8 @@ public partial class MyAppDbContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
+    public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
+
     public virtual DbSet<Territory> Territories { get; set; }
 
     public virtual DbSet<TestDatum> TestData { get; set; }
@@ -97,7 +99,7 @@ public partial class MyAppDbContext : DbContext
                 .HasForeignKey(d => d.ReportsTo)
                 .HasConstraintName("FK_Employees_Employees");
 
-            entity.HasMany(d => d.Territories).WithMany(p => p.Employees)
+            /*entity.HasMany(d => d.Territories).WithMany(p => p.Employees)
                 .UsingEntity<Dictionary<string, object>>(
                     "EmployeeTerritory",
                     r => r.HasOne<Territory>().WithMany()
@@ -113,7 +115,7 @@ public partial class MyAppDbContext : DbContext
                         j.HasKey("EmployeeID", "TerritoryID").IsClustered(false);
                         j.ToTable("EmployeeTerritories");
                         j.IndexerProperty<string>("TerritoryID").HasMaxLength(20);
-                    });
+                    });*/
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -257,6 +259,28 @@ public partial class MyAppDbContext : DbContext
             entity.Property(e => e.PostalCode).HasMaxLength(10);
             entity.Property(e => e.Region).HasMaxLength(15);
         });
+
+        modelBuilder.Entity<EmployeeTerritories>(entity =>
+        {
+            entity.HasKey(e => new { e.EmployeeID, e.TerritoryID }).IsClustered(false);
+
+            entity.ToTable("EmployeeTerritories");
+
+            entity.Property(e => e.TerritoryID).HasMaxLength(20);
+
+            entity.HasOne(e => e.Employee)
+                .WithMany(e => e.EmployeeTerritories)
+                .HasForeignKey(e => e.EmployeeID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_EmployeeTerritories_Employees");
+
+            entity.HasOne(e => e.Territory)
+                .WithMany(t => t.EmployeeTerritories)
+                .HasForeignKey(e => e.TerritoryID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_EmployeeTerritories_Territories");
+        });
+
 
         modelBuilder.Entity<Territory>(entity =>
         {

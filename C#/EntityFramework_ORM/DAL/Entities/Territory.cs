@@ -12,5 +12,7 @@ public partial class Territory : IEntity
 
     public virtual Region Region { get; set; } = null!;
 
-    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
+    public virtual ICollection<EmployeeTerritories> EmployeeTerritories { get; set; } = new List<EmployeeTerritories>();
+
+    //public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }

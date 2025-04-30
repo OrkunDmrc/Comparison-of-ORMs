@@ -99,6 +99,7 @@ func main() {
 		orderGroup.POST("/", orderAPI.Create)
 		orderGroup.PUT("/:id", orderAPI.Update)
 		orderGroup.DELETE("/:id", orderAPI.Delete)
+		orderGroup.GET("/AllTables", orderAPI.AllTables)
 	}
 
 	orderDetailRepo := repositories.NewOrderDetailRepository(db)

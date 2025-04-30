@@ -74,3 +74,11 @@ func (h *OrderAPI) Delete(c *gin.Context) {
 	}
 	c.Status(http.StatusOK)
 }
+
+func (h *OrderAPI) AllTables(c *gin.Context) {
+	if err := h.Service.AllTables(); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, "OK")
+}

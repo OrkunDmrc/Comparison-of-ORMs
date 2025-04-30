@@ -22,3 +22,6 @@ class OrderService:
 
     def delete(self, id: int):
         return self.repo.delete(id)
+    
+    def allTables(self):
+        self.repo.allTables()

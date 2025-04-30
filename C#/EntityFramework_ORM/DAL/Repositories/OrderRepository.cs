@@ -95,4 +95,44 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             CpuUsage = $"{0} ms",
         });
     }
+
+    public async Task AllTablesTestAsync()
+    {
+        var stopwatch = Stopwatch.StartNew();
+        var query = from o in _context.Orders
+                    join e in _context.Employees on o.EmployeeID equals e.EmployeeID
+                    join c in _context.Customers on o.CustomerID equals c.CustomerID
+                    join s in _context.Shippers on o.ShipVia equals s.ShipperID
+                    join od in _context.Order_Details on o.OrderID equals od.OrderID
+                    join p in _context.Products on od.ProductID equals p.ProductID
+                    join ct in _context.Categories on p.CategoryID equals ct.CategoryID
+                    join sp in _context.Suppliers on p.SupplierID equals sp.SupplierID
+                    join et in _context.EmployeeTerritories on e.EmployeeID equals et.EmployeeID
+                    join t in _context.Territories on et.TerritoryID equals t.TerritoryID
+                    join r in _context.Regions on t.RegionID equals r.RegionID
+                    select new
+                    {
+                        Order = o,
+                        Employee = e,
+                        Customer = c,
+                        Shipper = s,
+                        OrderDetail = od,
+                        Product = p,
+                        Category = ct,
+                        Supplier = sp,
+                        EmployeeTerritory = et,
+                        Territory = t,
+                        Region = r
+                    };
+        var results = await query.ToListAsync();
+        stopwatch.Stop();
+        await _testDatumRepository.AddAsync(new TestDatum
+        {
+            Language = "Net Core",
+            TestName = "EF All Tables Operation",
+            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
+            CpuUsage = $"{0} ms"
+        });
+    }
 }

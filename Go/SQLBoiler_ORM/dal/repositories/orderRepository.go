@@ -152,6 +152,39 @@ func (r *OrderRepository) GetAll(ctx context.Context) ([]*entities.Order, error)
 	return orders, nil
 }
 
+func (r *OrderRepository) AllTables(ctx context.Context) error {
+	query := `select o.*, e.*, c.*, s.*, od.*, p.*, ct.*, sp.*, et.*, t.*, r.* from Orders o
+			join Employees e on e.EmployeeID = o.EmployeeID
+			join Customers c on c.CustomerID = o.CustomerID
+			join Shippers s on s.ShipperID = o.ShipVia
+			join [Order Details] od on od.OrderID = o.OrderID
+			join Products p on p.ProductID = od.ProductID
+			join Categories ct on ct.CategoryID = p.CategoryID
+			join Suppliers sp on sp.SupplierID = p.SupplierID
+			join EmployeeTerritories et on et.EmployeeID = e.EmployeeID
+			join Territories t on t.TerritoryID = et.TerritoryID
+			join Region r on r.RegionID = t.RegionID`
+	start := time.Now()
+	rows, err := r.db.QueryContext(ctx, query)
+	duration := time.Since(start)
+	_ = rows
+	if err != nil {
+		return err
+	}
+	testData := &entities.TestData{
+		Language:    stringPtr("Golang"),
+		TestName:    stringPtr("SQLBoiler All Tables Operation"),
+		Performance: stringPtr(duration.String()),
+		MemoryUsage: stringPtr( /*formatMemory(memoryUsageMB)*/ "0 MB"),
+		CpuUsage:    stringPtr("0 ms"),
+	}
+	_, err = r.testDataRepo.Create(ctx, testData)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func stringPtr(s string) *string {
 	return &s
 }

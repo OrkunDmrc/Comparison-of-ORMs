@@ -25,6 +25,10 @@ export class OrderService {
   async delete(id: number) {
     await this.orderRepository.delete(id);
   }
+
+  async allTables(){
+    await this.orderRepository.allTables()
+  }
 }
 
 export default OrderService;

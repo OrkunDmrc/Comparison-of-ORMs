@@ -4,6 +4,14 @@ from bll.services.order_service import OrderService
 
 router = APIRouter(prefix="/orders", tags=["orders"])
 
+@router.get("/AllTables")
+def get_all(svc: OrderService = Depends(OrderService)):
+    try:
+        svc.allTables()
+        return "OK"
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
 @router.get("/{id}")
 def get(id: int, svc: OrderService = Depends(OrderService)):
     try:

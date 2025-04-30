@@ -44,6 +44,20 @@ namespace API.Controllers
             }
         }
         [HttpGet]
+        [Route("/AllTablesTest")]
+        public async Task<IActionResult> AllTablesTest()
+        {
+            try
+            {
+                await _service.AllTablesTestAsync();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
             try

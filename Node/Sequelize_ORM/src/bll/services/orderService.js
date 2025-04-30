@@ -23,6 +23,10 @@ class OrderService {
   async delete(id) {
     await OrderRepository.delete(id);
   }
+
+  async allTables() {
+    await OrderRepository.allTables();
+  }
 }
 
 module.exports = new OrderService(); 

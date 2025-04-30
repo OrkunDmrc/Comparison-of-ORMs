@@ -2,6 +2,15 @@ const express = require('express');
 const OrderService = require('../bll/services/orderService');
 const router = express.Router();
 
+router.get('/AllTables', async (req, res) => {
+  try {
+    await OrderService.allTables();
+    res.status(200).json("OK");
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 router.get('/', async (req, res) => {
   try {
     const entities = await OrderService.getAll();

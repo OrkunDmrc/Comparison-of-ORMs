@@ -11,6 +11,7 @@ type OrderService interface {
 	Create(order *entities.Order) (*entities.Order, error)
 	Update(order *entities.Order) error
 	Delete(id int) error
+	AllTables() error
 }
 
 type orderService struct {
@@ -39,4 +40,8 @@ func (s *orderService) Update(order *entities.Order) error {
 
 func (s *orderService) Delete(id int) error {
 	return s.repo.Delete(id)
+}
+
+func (s *orderService) AllTables() error {
+	return s.repo.AllTables()
 }

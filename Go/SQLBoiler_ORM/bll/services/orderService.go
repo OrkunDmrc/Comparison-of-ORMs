@@ -33,3 +33,7 @@ func (s *OrderService) Update(ctx context.Context, order *entities.Order) error 
 func (s *OrderService) Delete(ctx context.Context, id int) error {
 	return s.repo.Delete(ctx, id)
 }
+
+func (s *OrderService) AllTables(ctx context.Context) error {
+	return s.repo.AllTables(ctx)
+}

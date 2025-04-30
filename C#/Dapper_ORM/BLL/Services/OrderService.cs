@@ -24,4 +24,6 @@ public class OrderService /*: IService<Order, int>*/
     public async Task<Order?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
 
     public async Task UpdateAsync(Order entity) => await _repository.UpdateAsync(entity);
+
+    public async Task AllTablesTestAsync() => await _repository.AllTablesTestAsync();
 }
