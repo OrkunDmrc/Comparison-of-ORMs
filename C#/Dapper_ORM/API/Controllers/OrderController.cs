@@ -19,6 +19,8 @@ namespace API.Controllers
         {
             try
             {
+                for (int i = 0; i < 20; i++)
+                    _ = await _service.GetByIdAsync(id);
                 var entity = await _service.GetByIdAsync(id);
                 return Ok(new GetOrderModel()
                 {
@@ -49,7 +51,8 @@ namespace API.Controllers
         {
             try
             {
-                await _service.AllTablesTestAsync();
+                for (int i = 0; i < 20; i++)
+                    await _service.AllTablesTestAsync();
                 return Ok();
             }
             catch (Exception ex)
@@ -62,6 +65,8 @@ namespace API.Controllers
         {
             try
             {
+                for (int i = 0; i < 20; i++)
+                    _ = await _service.GetAllAsync();
                 var entities = await _service.GetAllAsync();
                 return Ok(entities.Select(entity => new GetOrderModel()
                 {
@@ -91,6 +96,23 @@ namespace API.Controllers
         {
             try
             {
+                for (int i = 0; i < 19; i++)
+                    _ = await _service.AddAsync(new Order
+                        {
+                            CustomerID = body.CustomerID,
+                            EmployeeID = body.EmployeeID,
+                            OrderDate = body.OrderDate,
+                            RequiredDate = body.RequiredDate,
+                            ShippedDate = body.ShippedDate,
+                            ShipVia = body.ShipVia,
+                            Freight = body.Freight,
+                            ShipName = body.ShipName,
+                            ShipAddress = body.ShipAddress,
+                            ShipCity = body.ShipCity,
+                            ShipRegion = body.ShipRegion,
+                            ShipPostalCode = body.ShipPostalCode,
+                            ShipCountry = body.ShipCountry
+                        });
                 return Ok(await _service.AddAsync(new Order
                 {
                     CustomerID = body.CustomerID,
@@ -118,23 +140,24 @@ namespace API.Controllers
         {
             try
             {
-                await _service.UpdateAsync(new Order
-                {
-                    OrderID = id,
-                    CustomerID = body.CustomerID,
-                    EmployeeID = body.EmployeeID,
-                    OrderDate = body.OrderDate,
-                    RequiredDate = body.RequiredDate,
-                    ShippedDate = body.ShippedDate,
-                    ShipVia = body.ShipVia,
-                    Freight = body.Freight,
-                    ShipName = body.ShipName,
-                    ShipAddress = body.ShipAddress,
-                    ShipCity = body.ShipCity,
-                    ShipRegion = body.ShipRegion,
-                    ShipPostalCode = body.ShipPostalCode,
-                    ShipCountry = body.ShipCountry
-                });
+                for (int i = 0; i < 20; i++)
+                    await _service.UpdateAsync(new Order
+                    {
+                        OrderID = id,
+                        CustomerID = body.CustomerID,
+                        EmployeeID = body.EmployeeID,
+                        OrderDate = body.OrderDate,
+                        RequiredDate = body.RequiredDate,
+                        ShippedDate = body.ShippedDate,
+                        ShipVia = body.ShipVia,
+                        Freight = body.Freight,
+                        ShipName = body.ShipName,
+                        ShipAddress = body.ShipAddress,
+                        ShipCity = body.ShipCity,
+                        ShipRegion = body.ShipRegion,
+                        ShipPostalCode = body.ShipPostalCode,
+                        ShipCountry = body.ShipCountry
+                    });
                 return Ok();
             }
             catch (Exception ex)
@@ -147,7 +170,8 @@ namespace API.Controllers
         {
             try
             {
-                await _service.DeleteAsync(id);
+                for (int i = 0; i < 20; i++)
+                    await _service.DeleteAsync(id - i);
                 return Ok();
             }
             catch (Exception ex)

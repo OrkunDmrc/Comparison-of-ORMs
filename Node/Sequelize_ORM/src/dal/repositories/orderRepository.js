@@ -41,6 +41,7 @@ class OrderRepository {
   }
 
   async create(data) {
+    console.log("data", data);
     const start = performance.now();
     const entity = await models.Orders.create(data);
     const end = performance.now();
@@ -72,7 +73,7 @@ class OrderRepository {
 
   async delete(id) {
     const start = performance.now();
-    const entity = models.Orders.findByPk(id);
+    const entity = await models.Orders.findByPk(id);
     await entity.destroy();
     const end = performance.now();
     const testDatum = {

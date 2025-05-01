@@ -19,6 +19,9 @@ func NewOrderAPI(s services.OrderService) *OrderAPI {
 }
 
 func (h *OrderAPI) GetAll(c *gin.Context) {
+	for i := 0; i < 19; i++ {
+		h.Service.GetAll()
+	}
 	entities, err := h.Service.GetAll()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -29,6 +32,9 @@ func (h *OrderAPI) GetAll(c *gin.Context) {
 
 func (h *OrderAPI) GetByID(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
+	for i := 0; i < 19; i++ {
+		h.Service.GetByID(id)
+	}
 	entity, err := h.Service.GetByID(id)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Order not found"})
@@ -42,6 +48,9 @@ func (h *OrderAPI) Create(c *gin.Context) {
 	if err := c.ShouldBindJSON(&entity); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
+	}
+	for i := 0; i < 19; i++ {
+		h.Service.Create(&entity)
 	}
 	order, err := h.Service.Create(&entity)
 	if err != nil {
@@ -59,26 +68,32 @@ func (h *OrderAPI) Update(c *gin.Context) {
 		return
 	}
 	entity.OrderID = id
-	if err := h.Service.Update(&entity); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
+	for i := 0; i < 20; i++ {
+		if err := h.Service.Update(&entity); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
 	}
 	c.JSON(http.StatusOK, entity)
 }
 
 func (h *OrderAPI) Delete(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
-	if err := h.Service.Delete(id); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
+	for i := 0; i < 20; i++ {
+		if err := h.Service.Delete(id - 1); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
 	}
 	c.Status(http.StatusOK)
 }
 
 func (h *OrderAPI) AllTables(c *gin.Context) {
-	if err := h.Service.AllTables(); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
+	for i := 0; i < 20; i++ {
+		if err := h.Service.AllTables(); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
 	}
 	c.JSON(http.StatusOK, "OK")
 }

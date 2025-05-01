@@ -23,7 +23,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF Get All Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
         });
@@ -39,7 +39,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF Get Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{0} ms",
         });
@@ -56,7 +56,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF Create Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{0} ms",
         });
@@ -73,10 +73,11 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF Update Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{0} ms",
         });
+        _context.ChangeTracker.Clear();
     }
 
     public async Task DeleteAsync(int id)
@@ -90,7 +91,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF Delete Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{0} ms",
         });
@@ -130,7 +131,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         {
             Language = "Net Core",
             TestName = "EF All Tables Operation",
-            Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+            Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
             MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
             CpuUsage = $"{0} ms"
         });

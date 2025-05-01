@@ -75,8 +75,23 @@ func (r *orderRepository) GetByID(id int) (*entities.Order, error) {
 }
 
 func (r *orderRepository) Create(entity *entities.Order) (*entities.Order, error) {
+	newOrder := &entities.Order{
+		CustomerID:     entity.CustomerID,
+		EmployeeID:     entity.EmployeeID,
+		OrderDate:      entity.OrderDate,
+		RequiredDate:   entity.RequiredDate,
+		ShippedDate:    entity.ShippedDate,
+		ShipVia:        entity.ShipVia,
+		Freight:        entity.Freight,
+		ShipName:       entity.ShipName,
+		ShipAddress:    entity.ShipAddress,
+		ShipCity:       entity.ShipCity,
+		ShipRegion:     entity.ShipRegion,
+		ShipPostalCode: entity.ShipPostalCode,
+		ShipCountry:    entity.ShipCountry,
+	}
 	start := time.Now()
-	err := r.db.Create(entity).Error
+	err := r.db.Create(newOrder).Error
 	duration := time.Since(start)
 	if err != nil {
 		return nil, err

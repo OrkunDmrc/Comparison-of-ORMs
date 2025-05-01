@@ -29,7 +29,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             {
                 Language = "Net Core",
                 TestName = "Dapper Get All Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
             });
@@ -50,7 +50,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             {
                 Language = "Net Core",
                 TestName = "Dapper Get Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
             });
@@ -63,16 +63,16 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
         using (var connection = new SqlConnection(_connectionString))
         {
             await connection.OpenAsync();
-            var query = $"INSERT INTO Orders (CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry)" +
-                $" VALUES (@CustomerID, @EmployeeID, @OrderDate, @RequiredDate, @ShippedDate, @ShipVia, @Freight, @ShipName, @ShipAddress, @ShipCity, @ShipRegion, @ShipPostalCode, @ShipCountry)";
+            var query = @"INSERT INTO Orders (CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry)" +
+                @" VALUES (@CustomerID, @EmployeeID, @OrderDate, @RequiredDate, @ShippedDate, @ShipVia, @Freight, @ShipName, @ShipAddress, @ShipCity, @ShipRegion, @ShipPostalCode, @ShipCountry)";
             var stopwatch = Stopwatch.StartNew();
-            await connection.QuerySingleAsync<int>(query, entity);
+            await connection.ExecuteAsync(query, entity);
             stopwatch.Stop();
             await _testDatumRepository.AddAsync(new TestDatum
             {
                 Language = "Net Core",
                 TestName = "Dapper Create Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
             });
@@ -95,7 +95,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             {
                 Language = "Net Core",
                 TestName = "Dapper Update Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
             });
@@ -115,7 +115,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             {
                 Language = "Net Core",
                 TestName = "Dapper Delete Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{/*(cpuAfter - cpuBefore).TotalMilliseconds*/0} ms",
             });
@@ -140,7 +140,7 @@ public class OrderRepository /*: GenericRepository<Order, int>*/
             {
                 Language = "Net Core",
                 TestName = "Dapper All Tables Operation",
-                Performance = $"{stopwatch.ElapsedMilliseconds} ms",
+                Performance = $"{stopwatch.Elapsed.TotalMilliseconds} ms",
                 MemoryUsage = $"{/*(memAfter - memBefore) / 1024 / 1024*/0} MB",
                 CpuUsage = $"{0} ms"
             });

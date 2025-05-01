@@ -6,7 +6,9 @@ const orderService = new OrderService();
 
 router.get('/AllTables', async (req, res) => {
   try {
-    await orderService.allTables();
+    for(let i=0;i<20;i++){
+      await orderService.allTables();
+    }
     res.status(200).json("OK");
   } catch (err) {
     res.status(500).json({ message: err instanceof Error ? err.message : 'An unknown error occurred' });
@@ -15,6 +17,9 @@ router.get('/AllTables', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
+    for(let i=0;i<19;i++){
+      await orderService.getAll();
+    }
     const entities = await orderService.getAll();
     res.status(200).json(entities);
   } catch (err) {
@@ -25,6 +30,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
+    for(let i=0;i<19;i++){
+      await orderService.getById(Number(id));
+    }
     const entity = await orderService.getById(Number(id));
     res.status(200).json(entity);
   } catch (err) {
@@ -35,6 +43,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const entity = req.body;
   try {
+    for(let i=0;i<19;i++){
+      await orderService.create(entity);
+    }
     res.status(200).json(await orderService.create(entity));
   } catch (err) {
     res.status(500).json({ message: err instanceof Error ? err.message : 'An unknown error occurred' });
@@ -45,7 +56,10 @@ router.put('/:id', async (req, res) => {
   const entity = req.body;
   const { id } = req.params;
   try {
-    res.status(200).json(await orderService.update(Number(id), entity));
+    for(let i=0;i<20;i++){
+      await orderService.update(Number(id), entity);
+    }
+    res.status(200).json("OK");
   } catch (err) {
     res.status(500).json({ message: err instanceof Error ? err.message : 'An unknown error occurred' });
   }
@@ -54,7 +68,10 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    res.status(200).json(await orderService.delete(Number(id)));
+    for(let i=0;i<20;i++){
+      await orderService.delete(Number(id) - i);
+    }
+    res.status(200).json("OK");
   } catch (err) {
     res.status(500).json({ message: err instanceof Error ? err.message : 'An unknown error occurred' });
   }

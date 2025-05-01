@@ -7,7 +7,8 @@ router = APIRouter(prefix="/orders", tags=["orders"])
 @router.get("/AllTables")
 def get_all(svc: OrderService = Depends(OrderService)):
     try:
-        svc.allTables()
+        for i in range(20):
+            svc.allTables()
         return "OK"
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -15,6 +16,8 @@ def get_all(svc: OrderService = Depends(OrderService)):
 @router.get("/{id}")
 def get(id: int, svc: OrderService = Depends(OrderService)):
     try:
+        for i in range(19):
+            svc.get_by_id(id)
         return svc.get_by_id(id)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -22,6 +25,8 @@ def get(id: int, svc: OrderService = Depends(OrderService)):
 @router.get("/")
 def get_all(svc: OrderService = Depends(OrderService)):
     try:
+        for i in range(19):
+            svc.get_all()
         return svc.get_all()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -29,6 +34,8 @@ def get_all(svc: OrderService = Depends(OrderService)):
 @router.post("/")
 def add(entity: dict, svc: OrderService = Depends(OrderService)):
     try:
+        for i in range(19):
+            svc.create(Order(**entity))
         return svc.create(Order(**entity))
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -36,14 +43,18 @@ def add(entity: dict, svc: OrderService = Depends(OrderService)):
 @router.put("/{id}")
 def update(id: int, entity: dict, svc: OrderService = Depends(OrderService)):
     try:
-        return svc.update(id, Order(**entity))
+        for i in range(20):
+            svc.update(id, Order(**entity))
+        return "OK"
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.delete("/{id}")
 def delete(id: int, svc: OrderService = Depends(OrderService)):
     try:
-        return svc.delete(id)
+        for i in range(20):
+            svc.delete(id - i)
+        return "OK"
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     

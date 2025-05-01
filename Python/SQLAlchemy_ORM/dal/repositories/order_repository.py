@@ -55,10 +55,13 @@ class OrderRepository():
 
     def update(self, id: int, obj: Order) -> Optional[Order]:
         start_time = time.time()
-        db_obj = self.get_by_id(id)
+        db_obj = self.db.get(Order, id)
+        for key, value in obj.__dict__.items():
+            if value is not None and key != "_sa_instance_state":
+                setattr(db_obj, key, value)
         self.db.commit()
+        self.db.refresh(db_obj)
         end_time = time.time()
-        self.db.refresh(obj)
         test_datum = TestDatum()
         test_datum.Language = "Python"
         test_datum.TestName = "SQLAlchemy Update Operation"
@@ -66,7 +69,6 @@ class OrderRepository():
         test_datum.MemoryUsage = f"{0} MB"
         test_datum.CpuUsage = f"{0} ms"
         self.test_datum_repo.create(test_datum)
-        self.db.refresh(db_obj)
         return db_obj
 
     def delete(self, id: int) -> Optional[Order]:
